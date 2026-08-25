@@ -1,0 +1,89 @@
+﻿@page
+@model TanProject.Pages.Shared.WelcomeModel
+@{
+    ViewData["Title"] = "گام اول: آرامش اولیه";
+    ViewData["HeaderType"] = "Secondary";
+    ViewData["BodyClass"] = "page-welcome";
+    ViewData["TranslationKey"] = "welcomePage.title";
+}
+@section Decoration {
+    <div class="decoration">
+        <div class="decoration__shapes">
+            <div class="decoration__shape decoration__shape--yellow decoration__shape--welcome-primary"></div>
+            <div class="decoration__shape decoration__shape--green decoration__shape--welcome-secondary"></div>
+        </div>
+    </div>
+}
+<main class="main">
+    <div class="container">
+        <div class="card">
+            <section class="step-section">
+                <h1 class="card__title text-center">
+                    <span data-i18n="welcomePage.greetingTitlePart1">سلام!</span><br>
+                    <span data-i18n="welcomePage.greetingTitlePart2">امکانش هست اسمت رو بهم بگی؟</span>
+                </h1>
+                <div class="card__wrapper d-flex">
+                    <input class="card__input" type="text" id="username-input" data-i18n-attr="placeholder:welcomePage.nameInputPlaceholder"
+                           placeholder="نام یا نام مستعار شما..." />
+                    <button class="card__submit-btn" id="next-btn" onclick="saveNameAndNext()" data-i18n-attr="aria-label:welcomePage.submitBtnAlt" aria-label="Submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <path d="M25.5741 13.537H1.5" stroke="white" stroke-width="3" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                            <path d="M13.537 25.5741L1.5 13.537L13.537 1.5" stroke="white" stroke-width="3"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <section class="step-section hidden">
+                <h1 class="card__title text-center">
+                    <span data-i18n="welcomePage.ageQuestionTitle1">برای اینکه بتونم بیشتر همراهیت کنم،</span>
+                    <span data-i18n="welcomePage.ageQuestionTitle2">میشه بگی چند سالته؟</span>
+                </h1>
+                <div class="age-picker__wrapper">
+                    <div class="age-picker">
+                        <div class="age-track" id="track"></div>
+                    </div>
+                    <button asp-page="" class="btn btn--tertiary" data-i18n="welcomePage.continueBtn" data-i18n-attr="aria-label:welcomePage.submitAgeAlt" aria-label="Submit" onclick="saveAgeAndNext()">ادامه</button>
+                </div>
+                <p class="result">سن انتخاب‌شده: <b id="result">۱۵</b></p>
+            </section>
+            <section class="step-section hidden text-center">
+                <div class="dynamic-title d-flex justify-center align-center flex-column">
+                    <h1 class="dynamic-title__text fade-in">خیلی خوش اومدی <span class="accent" id="user-display-name">دوست من!</span></h1>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+@section Footer {
+    <footer class="footer">
+        <button class="next-btn hidden" onclick="goToNextStep()" aria-label="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M25.5741 13.537H1.5" stroke="#331E38" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                <path d="M13.537 25.5741L1.5 13.537L13.537 1.5" stroke="#331E38" stroke-width="3"
+                      stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="pagination">
+            <div class="dot-wrapper">
+                <span class="dot dot--active"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot"></span>
+            </div>
+        </div>
+        <span class="footer__text" data-i18n="welcomePage.stepText">گام اول: آرامش اولیه</span>
+    </footer>
+}
+@section Scripts {
+    <script src="~/js/agePicker.js"></script>
+}

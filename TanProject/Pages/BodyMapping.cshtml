@@ -1,0 +1,330 @@
+﻿@page
+@inject Microsoft.Extensions.Localization.IStringLocalizer<TanProject.Pages.BodyMappingModel> Localizer
+@model TanProject.Pages.BodyMappingModel
+@{
+    ViewData["Title"] = "گام دوم";
+    ViewData["HeaderType"] = "Secondary";
+    ViewData["BodyClass"] = "page-welcome";
+    ViewData["TranslationKey"] = "bodyMapping.title";
+}
+@section Decoration{
+    <div class="decoration">
+        <div class="decoration__shapes">
+            <div class="decoration__shape decoration__shape--yellow decoration__shape--hero-primary"></div>
+            <div class="decoration__shape decoration__shape--green decoration__shape--welcome-secondary"></div>
+            <div class="decoration__shape decoration__shape--purple decoration__shape--welcome-tertiary"></div>
+        </div>
+    </div>
+}
+<main class="main">
+    <div class="body-mapping">
+        <div class="container">
+            <div class="body-mapping__header">
+                <h2 class="body-mapping__description text-center" data-i18n="bodyMapping.instruction1">
+                    @Localizer["bodyMapping.instruction1"]
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-8 d-flex flex-column align-center">
+                    <div class="sensation-panel d-flex flex-column align-center justify-around" data-step="1">
+
+                        <div class="sensation-panel__step sensation-panel__step--1 d-flex flex-column align-center justify-between">
+                            <div class="sensation-panel__title">
+                                <h3>
+                                    <span data-i18n="bodyMapping.questionPrefix">@Localizer["bodyMapping.questionPrefix"]</span>
+                                    <span id="sensation-panel__title" data-i18n="bodyMapping.bodyParts.hand">@Localizer["bodyMapping.bodyParts.hand"]</span>
+                                    <span data-i18n="bodyMapping.questionSuffix">@Localizer["bodyMapping.questionSuffix"]</span>
+                                </h3>
+                            </div>
+                            <div class="sensation-panel__options d-flex justify-center">
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="cold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+                                         viewBox="0 0 21 21" fill="none">
+                                        <path d="M20.4706 12.7027C20.5894 13.1473 20.3263 13.6042 19.8827 13.7233L17.3256 14.4101C17.2997 14.417 17.2844 14.4437 17.2913 14.4696L17.9765 17.0327C18.1145 17.5472 17.7408 18.0787 17.1675 18.0839C16.7934 18.0873 16.4676 17.8273 16.3707 17.4652L16.3704 17.464L15.5466 14.3824L11.4048 11.9855C11.3724 11.9668 11.332 11.9902 11.332 12.0276V16.8214L13.5826 19.0773C13.9073 19.4028 13.9073 19.9304 13.5826 20.2559C13.2579 20.5813 12.7315 20.5814 12.4068 20.2559L10.5349 18.3795C10.516 18.3605 10.4852 18.3605 10.4663 18.3795L8.59435 20.2559C8.26967 20.5814 7.74326 20.5813 7.41858 20.2559C7.09389 19.9304 7.09394 19.4028 7.41863 19.0773L9.66921 16.8214V12.0276C9.66921 11.9901 9.62876 11.9667 9.59643 11.9855L5.45461 14.3824L4.63081 17.464C4.51199 17.9086 4.05611 18.1724 3.61261 18.0533C3.16911 17.9342 2.90588 17.4773 3.0247 17.0327L3.70988 14.4696C3.71682 14.4437 3.70145 14.417 3.67556 14.4101L1.11845 13.7233C0.592292 13.5826 0.319237 12.9664 0.636538 12.4587C0.826739 12.1543 1.20101 12.0199 1.54714 12.113L1.54878 12.1134L4.62328 12.9391L8.76515 10.5421C8.79752 10.5234 8.79752 10.4766 8.76515 10.4579L4.62328 8.06094L1.54878 8.88664C1.02298 9.02844 0.479259 8.63169 0.500609 8.03309C0.513429 7.67409 0.770622 7.37009 1.1168 7.27719L1.11845 7.27674L3.67556 6.58998C3.70145 6.58303 3.71682 6.55639 3.70988 6.53043L3.0247 3.96733C2.88343 3.44037 3.2791 2.89562 3.87604 2.91687C4.23434 2.92962 4.53768 3.18762 4.63051 3.53472L4.63086 3.53597L5.45466 6.61764L9.59648 9.01454C9.62886 9.03324 9.66926 9.00984 9.66926 8.97244V4.17858L7.41868 1.92267C7.09399 1.59722 7.09394 1.06956 7.41863 0.744113C7.74331 0.418662 8.26972 0.418612 8.5944 0.744063L10.4663 2.62047C10.4853 2.63947 10.516 2.63947 10.535 2.62047L12.4069 0.744063C12.7316 0.418612 13.258 0.418662 13.5827 0.744113C13.9074 1.06956 13.9073 1.59722 13.5826 1.92267L11.332 4.17858V8.97244C11.332 9.00989 11.3725 9.03329 11.4048 9.01454L15.5466 6.61764L16.3704 3.53597C16.4893 3.09142 16.9451 2.82757 17.3886 2.94667C17.8321 3.06577 18.0954 3.52272 17.9766 3.96728L17.2914 6.53038C17.2844 6.55633 17.2998 6.58298 17.3257 6.58993L19.8828 7.27669C20.4089 7.41744 20.6819 8.03349 20.3648 8.54119C20.1746 8.84569 19.8002 8.98004 19.454 8.88704L19.4525 8.88664L16.378 8.06094L12.2361 10.4579C12.2037 10.4766 12.2037 10.5234 12.2361 10.5421L16.378 12.9391L19.4525 12.1134C19.896 11.9943 20.3518 12.2582 20.4706 12.7027Z"
+                                              stroke="#231F20" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.cold">@Localizer["bodyMapping.sensations.cold"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="heat">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="28"
+                                         viewBox="0 0 21 28" fill="none">
+                                        <path d="M5.44792 16.8156C7.48346 16.8446 9.10769 15.1383 9.07008 13.1086C9.03562 11.244 8.33923 10.3697 7.64285 8.98078C6.12731 5.95956 7.29808 3.26196 10.4019 0.51941C10.4454 0.480979 10.5142 0.503762 10.5262 0.560449C11.2655 4.07599 13.3912 7.44087 16.2143 9.6931C19.0715 11.9724 20.5 14.6791 20.5 17.5283C20.5 23.0357 16.0228 27.5004 10.5 27.5004C4.97715 27.5004 0.5 23.0357 0.5 17.5283C0.5 15.9748 1.05331 14.4366 1.79862 13.4235C1.84054 13.3665 1.93054 13.3939 1.93469 13.4645C2.04262 15.3166 3.56992 16.7888 5.44792 16.8156Z"
+                                              stroke="#231F20" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.heat">@Localizer["bodyMapping.sensations.heat"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="tightness">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22"
+                                         viewBox="0 0 21 22" fill="none">
+                                        <path d="M4.93262 9.55115C9.22135 9.55115 12.701 13.0223 12.7115 17.3109"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M18.2263 1.56259C19.4819 1.56259 20.4999 2.58265 20.4999 3.84093V6.56732C20.4999 7.8256 19.4819 8.84566 18.2263 8.84566C16.9706 8.84566 15.9526 7.8256 15.9526 6.56732V3.84093C15.9526 2.58265 16.9706 1.56259 18.2263 1.56259Z"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M13.6696 0.647339C14.9253 0.647339 15.9432 1.6674 15.9432 2.92568V6.55774C15.9432 7.81602 14.9253 8.83607 13.6696 8.83607C12.4139 8.83607 11.396 7.81602 11.396 6.55774V2.92568C11.396 1.6674 12.4139 0.647339 13.6696 0.647339Z"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M10.0713 8.62645C10.8975 8.274 11.4365 7.46556 11.444 6.56733V2.92577C11.5253 1.6701 10.5734 0.586211 9.31773 0.504878C8.06206 0.423544 6.97817 1.37549 6.89684 2.63116C6.89051 2.72927 6.89051 2.82766 6.89684 2.92577V5.09927"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M2.30172 6.62455V2.92577C2.22039 1.6701 3.17233 0.586211 4.428 0.504878C5.68367 0.423544 6.76756 1.37549 6.8489 2.63116C6.85523 2.72927 6.85523 2.82766 6.8489 2.92577V5.09927"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M5.02812 21.5817V19.7609L4.31317 19.1508C1.86323 16.6913 0.500002 14.2699 0.500002 10.7904C0.49878 9.28464 1.09139 7.83914 2.14917 6.76752C3.21767 5.70269 4.66356 5.10313 6.17207 5.09924H8.26929C9.49602 5.09924 10.4905 6.09369 10.4905 7.32041C10.4957 8.54714 9.50557 9.54581 8.27885 9.55108C8.27568 9.55108 8.27246 9.55108 8.26929 9.55108H4.93279"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                        <path d="M15.9531 21.5816V19.7608L16.6681 19.1507C19.118 16.6912 20.4812 14.2699 20.4812 10.7904V6.21457"
+                                              stroke="#231F20" stroke-miterlimit="333.333" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.tightness">@Localizer["bodyMapping.sensations.tightness"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="heaviness">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17"
+                                         viewBox="0 0 21 17" fill="none">
+                                        <path d="M20.2896 14.6972L17.1928 5.93074C16.9933 5.36589 16.3677 4.92342 15.7686 4.92342H13.0503C13.3016 4.46904 13.4344 3.95985 13.4344 3.43419C13.4344 1.73371 12.0508 0.350006 10.3502 0.350006C8.6496 0.350006 7.26611 1.73371 7.26611 3.43419C7.26611 3.96136 7.39752 4.46951 7.64865 4.92342H4.93174C4.33265 4.92342 3.7071 5.36589 3.50755 5.93074L0.410671 14.6972C0.307991 14.988 0.336769 15.279 0.490036 15.4954C0.643131 15.7118 0.907768 15.8359 1.21615 15.8359H19.4841C19.7924 15.8359 20.0572 15.7118 20.2102 15.4954C20.3633 15.279 20.3923 14.988 20.2896 14.6972ZM19.8882 15.2677C19.8089 15.3798 19.6654 15.4416 19.4841 15.4416H1.21615C1.03484 15.4416 0.891379 15.3798 0.812014 15.2677C0.732648 15.1556 0.722152 14.9996 0.78259 14.8288L3.87943 6.06228C4.02198 5.65887 4.50389 5.31792 4.93174 5.31792H8.00074C8.18347 5.31792 8.31011 5.21064 8.16713 5.0061C7.84248 4.54169 7.66039 4.00313 7.66039 3.43428C7.66039 1.9512 8.86696 0.744552 10.3501 0.744552C11.8333 0.744552 13.04 1.9512 13.04 3.43428C13.04 3.97349 12.8883 4.49855 12.5807 4.93805C12.4515 5.12263 12.4811 5.3178 12.7448 5.3178H15.7686C16.1965 5.3178 16.6784 5.6587 16.8209 6.06215L19.9177 14.8286C19.978 14.9995 19.9675 15.1555 19.8882 15.2677Z"
+                                              stroke="#231F20" stroke-width="0.7" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.heaviness">@Localizer["bodyMapping.sensations.heaviness"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="numbness">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="16"
+                                         viewBox="0 0 21 16" fill="none">
+                                        <path d="M16.9504 8.15958C18.9048 6.55375 20.1718 4.26147 20.4919 1.75191C20.5655 1.13857 20.1281 0.581722 19.5149 0.508137C18.9018 0.434551 18.3451 0.872062 18.2715 1.4854C17.663 5.77866 13.6903 8.76561 9.3982 8.15692C5.93811 7.66622 3.21907 4.94644 2.72851 1.4854C2.65494 0.872062 2.0982 0.434551 1.48507 0.508137C0.871942 0.581722 0.434508 1.13861 0.508073 1.75191C0.82542 4.25986 2.08825 6.55188 4.03855 8.15958L1.48507 10.736C1.08625 11.2018 1.14046 11.9029 1.6062 12.3018C2.02185 12.6578 2.63485 12.6578 3.05051 12.3018L5.94816 9.41444C7.02485 9.95868 8.19063 10.3048 9.38981 10.4361V14.3895C9.38981 15.0029 9.88685 15.5001 10.5 15.5001C11.1132 15.5001 11.6102 15.0029 11.6102 14.3895V10.4361C12.8094 10.3048 13.9752 9.95868 15.0519 9.41444L17.9495 12.3018C18.4153 12.7007 19.1161 12.6465 19.5149 12.1806C19.8709 11.7649 19.8709 11.1517 19.5149 10.7359L16.9504 8.15958Z"
+                                              stroke="#231F20" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.numbness">@Localizer["bodyMapping.sensations.numbness"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="tremor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
+                                         viewBox="0 0 21 19" fill="none">
+                                        <path d="M7.60372 11.1581L6.7397 4.34489C6.704 4.06328 6.29601 4.06328 6.26031 4.34489L5.39633 11.1571C5.38929 11.2126 5.34206 11.2542 5.28609 11.2542H1.49999C0.947992 11.2542 0.5 10.8172 0.5 10.2782C0.506571 9.73229 0.953996 9.29478 1.49999 9.30031H3.51809C3.57406 9.30031 3.62129 9.25871 3.62833 9.20316L4.516 2.21476C4.64998 1.14284 5.65002 0.382875 6.74499 0.514861C7.65497 0.624866 8.37097 1.32479 8.48401 2.21476L9.37068 9.20311C9.37773 9.25866 9.42496 9.30026 9.48093 9.30026H11.262C11.3167 9.30026 11.3633 9.34006 11.3718 9.3941L12.2613 15.0323C12.3041 15.3043 12.6957 15.3042 12.7386 15.0323L13.6272 9.39514C13.6357 9.3411 13.6823 9.3013 13.737 9.3013H19.5C20.052 9.3013 20.5 9.73929 20.5 10.2792C20.5 10.8192 20.052 11.2562 19.5 11.2562H15.453C15.3983 11.2562 15.3517 11.296 15.3432 11.35L14.477 16.8428C14.3356 17.6938 13.659 18.355 12.805 18.4768C11.713 18.6417 10.692 17.9098 10.523 16.8428L9.64304 11.2562L7.71392 11.2553C7.65795 11.2553 7.61077 11.2136 7.60372 11.1581Z"
+                                              stroke="#231F20" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.tremor">@Localizer["bodyMapping.sensations.tremor"]</span>
+                                </button>
+                                <button class="sensation-panel__option d-flex align-center" type="button" data-sensation="tingling">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="27"
+                                         viewBox="0 0 19 27" fill="none">
+                                        <path d="M18.2871 11.5421L18.4653 11.2691C18.5581 11.1272 18.4565 10.9387 18.2871 10.9387H11.1847C10.9876 10.9387 10.8277 10.7785 10.8277 10.5808V0.60728C10.8277 0.502085 10.6912 0.461284 10.6337 0.54927L0.670672 15.8005L0.528541 16.018C0.454534 16.1314 0.535603 16.2817 0.670672 16.2817H7.85738C8.05212 16.2817 8.2099 16.4398 8.2099 16.635V26.3046C8.2099 26.5013 8.46647 26.5751 8.57392 26.4106L18.2871 11.5421Z"
+                                              stroke="#231F20" stroke-miterlimit="10" />
+                                    </svg>
+                                    <span data-i18n="bodyMapping.sensations.tingling">@Localizer["bodyMapping.sensations.tingling"]</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sensation-panel__step sensation-panel__step--2 d-flex flex-column align-center justify-between">
+
+                            <div class="sensation-panel__sliders d-flex flex-column align-center">
+                                <div class="sensation-panel__slider">
+                                    <h3 class="valence-slider__title text-center" data-i18n="bodyMapping.valence.question">@Localizer["bodyMapping.valence.question"]</h3>
+
+                                    <div class="valence-slider d-flex flex-column justify-center align-center">
+                                        <input type="range" min="0" max="100" value="50" class="valence-slider__input"
+                                               id="valence">
+                                        <div class="valence-slider__labels d-flex justify-between">
+                                            <span class="valence-slider__label" data-i18n="bodyMapping.valence.pleasant">@Localizer["bodyMapping.valence.pleasant"]</span>
+                                            <span class="valence-slider__label" data-i18n="bodyMapping.valence.unpleasant">@Localizer["bodyMapping.valence.unpleasant"]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sensation-panel__slider text-center">
+                                    <h3 class="arousal-slider__title" data-i18n="bodyMapping.arousal.question">@Localizer["bodyMapping.arousal.question"]</h3>
+
+                                    <div class="arousal-slider d-flex flex-column justify-center align-center">
+                                        <input type="range" min="0" max="100" value="50" class="arousal-slider__input"
+                                               id="arousal">
+                                        <div class="arousal-slider__labels d-flex justify-between">
+                                            <span class="arousal-slider__label" data-i18n="bodyMapping.arousal.activated">@Localizer["bodyMapping.arousal.activated"]</span>
+                                            <span class="arousal-slider__label" data-i18n="bodyMapping.arousal.calm">@Localizer["bodyMapping.arousal.calm"]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sensation-panel__actions d-flex justify-center">
+                                <div class="sensation-panel_action__wrapper">
+                                    <button class="sensation-panel__action d-flex justify-center align-center" data-action="edit-sensation" aria-label="@Localizer["bodyMapping.actions.editSensation"]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                            <path d="M13.5514 3.2375L2.95308 13.8357C2.17732 14.6116 1.56485 15.5532 1.37837 16.6343C1.1901 17.7258 1.12746 19.0805 1.77346 19.7265C2.41946 20.3726 3.77411 20.3099 4.86571 20.1216C5.94682 19.9352 6.88849 19.3227 7.66419 18.5469L18.2624 7.94863M13.5514 3.2375C13.5514 3.2375 17.0847 -0.295837 19.4403 2.05972C21.7958 4.41529 18.2624 7.94863 18.2624 7.94863M13.5514 3.2375L18.2624 7.94863" stroke="#A0C1B9" stroke-width="2.5" stroke-miterlimit="333.333" />
+                                        </svg>
+                                    </button>
+                                    <div class="sensation-panel__tooltip" data-i18n="bodyMapping.actions.editSensation">@Localizer["bodyMapping.actions.editSensation"]</div>
+                                </div>
+                                <div class="sensation-panel_action__wrapper">
+                                    <button class="sensation-panel__action is-visible d-flex justify-center align-center" data-action="submit-sensation" aria-label="@Localizer["bodyMapping.actions.saveSensation"]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none">
+                                            <path d="M11.6001 2V21.2" stroke="#706993" stroke-width="4"
+                                                  stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2 11.6001H21.2" stroke="#706993" stroke-width="4"
+                                                  stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="sensation-panel__tooltip" data-i18n="bodyMapping.actions.saveSensation">@Localizer["bodyMapping.actions.saveSensation"]</div>
+                                </div>
+                                <div class="sensation-panel_action__wrapper">
+                                    <button class="sensation-panel__action d-flex justify-center align-center" data-action="remove-sensation" aria-label="@Localizer["bodyMapping.actions.removeSensation"]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24" fill="none">
+                                            <path d="M19.5 4.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H19.269L18.2131 21.2302C18.0928 22.7931 16.7895 24 15.2218 24H5.77809C4.21048 24 2.90714 22.7931 2.78693 21.2301L1.731 7.5H1.5C0.671573 7.5 0 6.82843 0 6C0 5.17157 0.671573 4.5 1.5 4.5H6V3C6 1.41846 7.22382 0.122753 8.77611 0.00822865L9 0H12C13.5815 0 14.8772 1.22382 14.9918 2.77611L15 3V4.5H19.5ZM16.26 7.5H4.7385L5.7781 21H15.2218L16.26 7.5ZM12 3H9V4.5H12V3Z" fill="#AD555D" />
+                                        </svg>
+                                    </button>
+                                    <div class="sensation-panel__tooltip" data-i18n="bodyMapping.actions.removeSensation">@Localizer["bodyMapping.actions.removeSensation"]</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="sensation-panel__nav-btn sensation-panel__nav-btn--next d-flex justify-center align-center" type="button" data-action="next-step" aria-label="مرحله بعد">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 12H5M12 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button class="sensation-panel__nav-btn sensation-panel__nav-btn--back d-flex justify-center align-center" type="button" data-action="prev-step" aria-label="مرحله قبل">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <div class="sensation-panel__pagination d-flex justify-center align-center">
+                            <button type="button" class="sensation-panel__dot" aria-label="حس ۱"></button>
+                            <button type="button" class="sensation-panel__dot" aria-label="حس ۲"></button>
+                            <button type="button" class="sensation-panel__dot" aria-label="حس ۳"></button>
+                            <button type="button" class="sensation-panel__dot" aria-label="حس ۴"></button>
+                            <button type="button" class="sensation-panel__dot" aria-label="حس ۵"></button>
+                        </div>
+                    </div>
+                    <div class="body-mapping__actions d-flex justify-between">
+                        <button class="btn btn--secondary" data-action="reset-body-map" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"
+                                 fill="none">
+                                <path d="M5.25003 2.06251C2.6853 3.52589 1 6.33585 1 9.50006C1 14.1945 4.80561 18.0001 9.50006 18.0001C14.1945 18.0001 18.0001 14.1945 18.0001 9.50006C18.0001 4.80561 14.1945 1 9.50006 1"
+                                      stroke="#706993" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                <path d="M5.25003 6.31253V2.0625H1" stroke="#706993" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span data-i18n="bodyMapping.actions.reset">@Localizer["bodyMapping.actions.reset"]</span>
+                        </button>
+                        <button class="btn btn--primary" type="button" data-i18n="bodyMapping.actions.continue">@Localizer["bodyMapping.actions.continue"]</button>
+                    </div>
+
+                </div>
+                <div class="col-4">
+                    <div class="body-map__image d-flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="612" viewBox="-10 -18 350 648"
+                             fill="none">
+                            <g class="body-part" data-part="left-arm">
+                                <path opacity="0.7"
+                                      d="M287.529 318.229C297 314.464 294.488 285.961 281.918 254.565C269.349 223.168 251.481 200.768 242.011 204.532C232.54 208.297 235.052 236.8 247.622 268.196C260.191 299.593 278.059 321.993 287.529 318.229Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                            <g class="body-part" data-part="right-thigh">
+                                <path opacity="0.7"
+                                      d="M98.2856 350.031C103.882 409.135 119.135 461.053 133.74 460.99C145.651 460.939 153.545 451.5 156.703 423.183C158.882 403.639 154.335 376.564 154.335 351.604C154.335 323.287 176.439 320.927 203.279 290.25C219.53 271.677 219.357 237.807 195.385 220.244C176.603 206.483 140.915 207.659 118.811 238.335C101.882 261.83 94.3385 308.341 98.2856 350.031Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                            <g class="body-part" data-part="left-thigh">
+                                <path opacity="0.7"
+                                      d="M171.702 375.988C162.229 442.848 181.964 460.152 192.122 460.91C215.108 462.623 224.593 395.652 227.751 372.055C231.028 347.568 231.142 321.173 230.119 302.835C228.54 274.518 216.682 267.092 206.215 266.466C196.174 265.866 185.122 277.665 178.017 291.823C173.252 301.319 170.123 316.207 170.912 328.006C171.916 343 173.566 362.829 171.702 375.988Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g class="body-part" data-part="chest">
+                                <path opacity="0.7"
+                                      d="M115.653 243.055C115.653 243.055 122.902 233.811 119.995 214.344C118.04 201.249 112.246 190.381 108.548 182.488C91.7316 146.588 115.915 122.258 121.616 110.968C118.811 110.908 113.285 110.908 110.127 111.695C110.127 111.695 135.389 102.256 140.125 93.6036C142.546 89.182 144.106 81.8708 140.125 73.939C140.125 73.939 160.65 105.402 188.155 74.7255C188.155 74.7255 175.52 94.889 206.832 107.369C214.726 110.515 225.383 115.628 225.383 115.628C225.383 115.628 215.91 114.055 211.174 123.494C205.961 133.882 207.076 146.227 208.016 156.53C209.595 173.835 216.305 187.601 216.305 187.601C216.305 187.601 201.7 217.097 209.595 236.762C209.595 236.762 196.919 213.116 170.913 211.591C157.493 210.805 132.231 216.311 115.653 243.055Z"
+                                      fill="#706993" />
+                                <path opacity="0.8"
+                                      d="M208.805 201.366C189.017 243.615 159.861 271.372 138.028 260.722C121.973 252.89 127.755 212.279 153.76 171.722C186.701 120.347 208.329 109.512 225.038 115.841C234.856 119.561 245.118 129 241.961 143.945C235.736 173.406 219.857 177.768 208.805 201.366Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g class="body-part" data-part="right-shoulder">
+                                <path opacity="0.7"
+                                      d="M73.0243 171.475C65.2543 204.379 61.4228 233.422 72.712 236.912C95.1282 243.841 94.01 216.339 108.548 191.927C112.457 185.364 125.409 171.344 129.073 165.183C141.704 143.945 147.23 122.707 129.863 113.268C114.029 104.663 92.6626 117.376 84.8657 131.36C76.9714 145.518 76.182 158.104 73.0243 171.475Z"
+                                      fill="#706993" />
+                            </g>
+                            <g class="body-part" data-part="right-arm">
+                                <path opacity="0.7"
+                                      d="M80.6148 268.196C93.1844 236.8 95.6965 208.297 86.2259 204.532C76.7553 200.768 58.8883 223.168 46.3187 254.565C33.7492 285.961 31.237 314.464 40.7076 318.229C50.1782 321.993 68.0453 299.593 80.6148 268.196Z"
+                                      fill="#706993" />
+                            </g>
+                            <g class="body-part" data-part="left-shoulder">
+                                <path opacity="0.7"
+                                      d="M256.095 171.955C263.431 206.096 266.386 234.223 252.085 237.986C240.872 240.937 229.33 222.604 224.593 202.939C224.026 200.582 220.646 191.14 216.699 190.354C213.541 182.488 211.741 175.911 211.173 173.835C208.805 165.183 208.319 158.466 207.226 148.665C205.647 134.506 210.474 114.893 223.014 115.628C236.435 116.415 246.697 128.213 256.095 171.955Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                            <g class="body-part" data-part="right-shin">
+                                <path opacity="0.7"
+                                      d="M134.696 567.079C147.55 566.641 156.69 528.968 155.111 482.934C153.531 436.901 141.831 399.938 128.976 400.376C116.122 400.814 106.982 438.486 108.562 484.52C110.141 530.554 121.842 567.517 134.696 567.079Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g class="body-part" data-part="left-shin">
+                                <path opacity="0.7"
+                                      d="M219.054 484.52C220.634 438.486 211.494 400.814 198.639 400.376C185.785 399.938 174.084 436.901 172.505 482.934C170.925 528.968 180.065 566.641 192.92 567.079C205.774 567.517 217.475 530.554 219.054 484.52Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                            <g class="body-part" data-part="neck">
+                                <path opacity="0.7"
+                                      d="M110.127 131.36C87.2338 179.341 122.09 206.938 146.441 204.512C185.912 200.579 188.28 163.61 187.491 153.384C186.401 139.267 168.48 120.09 165.387 107.762C160.65 88.884 178.648 72.4872 178.018 51.1279C177.228 24.384 154.681 15.7316 146.441 15.7316C142.378 15.7316 138.546 14.945 133.81 17.3047C129.863 23.5974 128.451 32.2995 129.073 43.2621C129.446 49.8359 133.02 61.3535 135.389 65.2864C141.588 75.5821 144.392 85.1012 140.915 92.0303C137.757 98.323 133.81 100.683 123.547 106.189C120.39 114.055 115.29 120.538 110.127 131.36Z"
+                                      fill="#706993" />
+                            </g>
+                            <g class="body-part" data-part="head">
+                                <path opacity="0.8"
+                                      d="M129.073 44.8354C130.846 67.7945 147.23 88.0975 163.808 88.0975C182.773 88.0975 196.174 68.4329 198.543 44.8354C199.653 33.7691 197.701 21.8226 192.227 14.1585C185.941 5.35742 178.018 0 163.808 0C150.388 0 140.899 6.30679 134.599 15.7317C129.57 23.2569 128.284 34.6098 129.073 44.8354Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g class="body-part" data-part="left-hand">
+                                <path opacity="0.7"
+                                      d="M303.658 315.917C305.004 319.686 305.566 323.475 305.431 326.982C305.146 334.405 301.735 340.564 296.021 342.59C291.14 344.321 285.651 342.657 281.082 338.661C277.775 335.769 274.951 331.655 273.189 326.722C268.993 314.975 272.412 303.033 280.825 300.049C289.239 297.065 299.461 304.17 303.658 315.917Z"
+                                      fill="#706993" />
+                                <path opacity="0.8"
+                                      d="M323.779 331.254C327.215 326.68 321.912 316.94 311.934 309.5C301.957 302.06 291.083 299.736 287.648 304.31C284.212 308.884 289.516 318.623 299.493 326.064C309.471 333.504 320.344 335.828 323.779 331.254Z"
+                                      fill="#F4E8C1" />
+                                <path opacity="0.8"
+                                      d="M311.632 328.476C318.522 347.766 315.901 366.314 305.778 369.904C295.654 373.494 281.861 360.767 274.971 341.477C268.081 322.187 269.778 303.806 280.825 300.049C291.923 296.276 304.742 309.186 311.632 328.476Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g class="body-part" data-part="right-hand">
+                                <path opacity="0.7"
+                                      d="M26.3426 315.917C24.9963 319.686 24.4339 323.475 24.5688 326.982C24.8546 334.405 28.265 340.564 33.9792 342.59C38.86 344.321 44.3495 342.657 48.9181 338.661C52.225 335.769 55.0494 331.655 56.8113 326.722C61.0075 314.975 57.5885 303.033 49.1747 300.049C40.761 297.065 30.5387 304.17 26.3426 315.917Z"
+                                      fill="#706993" />
+                                <path opacity="0.7"
+                                      d="M30.5069 326.064C40.4844 318.623 45.7877 308.884 42.3522 304.31C38.9167 299.736 28.0434 302.06 18.0659 309.5C8.08836 316.94 2.78501 326.68 6.22051 331.254C9.65601 335.828 20.5294 333.504 30.5069 326.064Z"
+                                      fill="#A0C1B9" />
+                                <path opacity="0.7"
+                                      d="M18.368 328.476C11.4777 347.766 14.0988 366.314 24.2225 369.904C34.3462 373.494 48.1388 360.767 55.0292 341.477C61.9195 322.187 60.2221 303.806 49.1746 300.049C38.0772 296.276 25.2583 309.186 18.368 328.476Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                            <g opacity="0.7" class="body-part" data-part="right-foot">
+                                <path opacity="0.7"
+                                      d="M80.9977 592.32C89.3172 610.57 105.752 607.269 124.641 599.07C143.53 590.871 154.616 574.556 149.401 562.629C144.187 550.702 124.647 547.68 105.758 555.879C86.8688 564.078 74.3664 577.774 80.9977 592.32Z"
+                                      fill="#F4E8C1" />
+                                <path d="M109.185 603.499C120.001 598.805 124.977 586.326 120.299 575.627C115.622 564.928 103.062 560.06 92.2461 564.755C81.4304 569.45 76.4545 581.929 81.1322 592.628C85.8098 603.327 98.3696 608.194 109.185 603.499Z"
+                                      fill="#F4E8C1" />
+                            </g>
+                            <g opacity="0.7" class="body-part" data-part="left-foot">
+                                <path opacity="0.7"
+                                      d="M248.445 592.32C240.126 610.57 223.691 607.269 204.802 599.07C185.913 590.871 174.827 574.556 180.042 562.629C185.256 550.702 204.796 547.68 223.685 555.879C242.574 564.078 255.076 577.774 248.445 592.32Z"
+                                      fill="#A0C1B9" />
+                                <path d="M248.311 592.628C252.988 581.929 248.013 569.45 237.197 564.755C226.381 560.061 213.821 564.928 209.144 575.627C204.466 586.326 209.442 598.805 220.258 603.499C231.073 608.194 243.633 603.327 248.311 592.628Z"
+                                      fill="#A0C1B9" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Footer {
+    <footer class="footer">
+        <div class="pagination">
+            <div class="dot-wrapper">
+                <span class="dot dot--active"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot dot--active"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot"></span>
+            </div>
+            <div class="dot-wrapper">
+                <span class="dot"></span>
+            </div>
+        </div>
+        <span class="footer__text">گام دوم: شناسایی حس‌های بدن</span>
+    </footer>
+}
+@section Scripts {
+    <script src="~/js/body-map.js"></script>
+}

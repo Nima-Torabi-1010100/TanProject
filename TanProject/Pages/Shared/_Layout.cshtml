@@ -1,0 +1,49 @@
+﻿@{
+    var bodyClass = ViewData["BodyClass"]?.ToString() ?? "";
+    var translationKey = ViewData["TranslationKey"]?.ToString() ?? "page.title";
+}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+
+<head>
+    <meta charset="ut">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="@translationKey">تن | @ViewData["Title"]</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="~/images/favicon-512x512.png">
+    <link rel="stylesheet" href="~/css/agePicker.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <script src="~/js/translations.js"></script>
+    <script src="~/js/theme-init.js"></script>
+</head>
+
+<body class="@bodyClass">
+    @RenderSection("Decoration", required: false)
+
+    <header class="site-header">
+        @if (ViewData["HeaderType"]?.ToString() == "Secondary")
+        {
+            <partial name="_HeaderSecondary" />
+        }
+        else
+        {
+            <partial name="_HeaderMain" />
+        }
+    </header>
+    <div class="custom-alert" id="customAlert">
+        <div class="custom-alert__content">
+            <p class="custom-alert__message">لطفاً یک گزینه را انتخاب کنید.</p>
+            <button class="custom-alert__button" onclick="closeAlert()">باشه</button>
+        </div>
+    </div>
+    @RenderBody()
+
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer", required: false)
+    }
+
+    <script src="~/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

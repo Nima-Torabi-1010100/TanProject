@@ -1,0 +1,45 @@
+﻿@page
+@model TanProject.Pages.IndexModel
+@{
+    ViewData["Title"] = "خانه";
+    ViewData["ActivePage"] = "Index";
+}
+@section Decoration {
+    <div class="decoration">
+        <div class="decoration__shape decoration__shape--yellow decoration__shape--hero-primary"></div>
+        <div class="decoration__shape decoration__shape--purple decoration__shape--hero-secondary"></div>
+        <div class="decoration__img decoration__img--top">
+            <img src="/images/decor-ball-filtered.webp" alt="decor-ball.webp">
+        </div>
+        <div class="decoration__img decoration__img--center">
+            <img src="/images/decor-ball-filtered.webp" alt="decor-ball.webp">
+        </div>
+        <div class="decoration__img decoration__img--bottom">
+            <img src="/images/decor-ball-filtered.webp" alt="decor-ball.webp">
+        </div>
+    </div>
+}
+<main class="hero">
+    <div class="container">
+        <div class="row align-center flex-column-reverse-mobile">
+            <div class="col-7 col-mobile-12">
+                <div class="hero__content d-flex flex-column align-start">
+                    <h1 class="hero__title">
+                        <span data-i18n="hero.titlePart1">به </span>
+                        <span class="accent" data-i18n="hero.titleAccent">بدنت</span>
+                        <span data-i18n="hero.titlePart2"> گوش بده!</span>
+                    </h1>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle">
+                        مسیر آگاهی از احساساتت از اینجا شروع میشه!
+                    </p>
+                    <a asp-page="Welcome" class="hero__cta" data-i18n="hero.cta">آغاز</a>
+                </div>
+            </div>
+            <div class="col-5 col-mobile-12">
+                <div class="hero__img">
+                    <img src="./images/breathing-ball.png" alt="breathing-ball.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

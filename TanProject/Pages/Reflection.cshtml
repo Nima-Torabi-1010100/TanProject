@@ -1,0 +1,97 @@
+﻿@page
+@model TanProject.Pages.ReflectionModel
+@{
+    ViewData["Title"] = "گام چهارم";
+    ViewData["HeaderType"] = "Secondary";
+    ViewData["BodyClass"] = "page-welcome";
+    ViewData["TranslationKey"] = "chat.title";
+}
+
+<main class="main">
+    <div class="container">
+        <article class="reflection d-flex">
+            <div class="reflection__img">
+                <img id="reflection__image" src="">
+            </div>
+
+            <div class="reflection__body d-flex flex-column align-center">
+                <div class="reflection__head d-flex justify-center">
+                    <svg class="reflection__icon" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="326.6054mm"
+                         height="326.6054mm" viewBox="0 0 925.8107 925.8107">
+                        <defs>
+                            <linearGradient id="linear-gradient" x1="42.6723" y1="454.2908" x2="883.1384"
+                                            y2="454.2908" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#a0c1b9" />
+                                <stop offset="1" stop-color="#706993" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M640.5545,188.0261c86.5383,0,140.6246,93.68,97.3555,168.6242l-177.6492,307.6974c-21.6346,37.4721-59.495,56.2081-97.3555,56.2081s-75.7208-18.736-97.3555-56.2081l-177.6492-307.6974c-43.2692-74.9442,10.8175-168.6242,97.3555-168.6242h355.2983M640.5545,58.0261h-355.2983c-44.1934,0-87.3358,11.8883-124.7642,34.3796-35.1055,21.0954-64.5583,51.1204-85.1746,86.8287-20.6163,35.7083-31.8921,76.2279-32.6088,117.1775-.7638,43.6592,10.5121,86.9662,32.6088,125.2383l177.6492,307.6974c22.0967,38.2725,53.9637,69.6913,92.1558,90.8593,35.8217,19.8541,76.5504,30.3486,117.783,30.3486s81.9613-10.4945,117.783-30.3486c38.192-21.168,70.0591-52.5867,92.1558-90.8593l177.6493-307.6974c22.0967-38.2721,33.3723-81.5788,32.6086-125.2383-.7166-40.95-11.9924-81.4692-32.6086-117.1775-20.6165-35.7087-50.0692-65.7333-85.1747-86.8287-37.4283-22.4913-80.5708-34.3796-124.7642-34.3796h0Z"
+                              fill="url(#linear-gradient)" stroke-width="0" />
+                    </svg>
+                    <h2 class="reflection__title">روایت حس شما</h2>
+                </div>
+                <div class="reflection__narrative d-flex flex-column">
+                </div>
+                <button class="reflection__action btn d-flex justify-center align-center">
+                    <span>اشتراک گذاری این تجربه!</span>
+                    <div class="reflection__action-mark d-flex justify-center align-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24"
+                             fill="none">
+                            <path d="M17.4164 7.41675C19.2574 7.41675 20.7498 5.92434 20.7498 4.08337C20.7498 2.2424 19.2574 0.75 17.4164 0.75C15.5754 0.75 14.083 2.2424 14.083 4.08337C14.083 5.92434 15.5754 7.41675 17.4164 7.41675Z"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.08339 15.1945C5.92438 15.1945 7.41679 13.7021 7.41679 11.8611C7.41679 10.0201 5.92438 8.52771 4.08339 8.52771C2.24241 8.52771 0.75 10.0201 0.75 11.8611C0.75 13.7021 2.24241 15.1945 4.08339 15.1945Z"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.4164 22.9725C19.2574 22.9725 20.7498 21.4801 20.7498 19.6392C20.7498 17.7982 19.2574 16.3058 17.4164 16.3058C15.5754 16.3058 14.083 17.7982 14.083 19.6392C14.083 21.4801 15.5754 22.9725 17.4164 22.9725Z"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.2832 14.9722L12.3944 16.75" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12.3944 6.97223L9.2832 8.75003" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </article>
+        <div class="feedback-card">
+            <header class="feedback-card__header">
+                <h3 class="feedback-card__title">این روایت چقدر با حس واقعی امروزت هم‌خوانی داشت؟</h3>
+                <p class="feedback-card__subtitle">
+                    پاسخ درست یا غلط وجود ندارد؛ این فقط برای این است که «تَن» کمی
+                    بهتر همراهت باشد.
+                </p>
+            </header>
+            <div class="feedback-card__slider d-flex flex-column justify-center align-center">
+                <span class="feedback-card__status" id="slider-status">نزدیک</span>
+                <div class="feedback-card__range-group">
+                    <input type="range" min="0" max="100" step="25" value="50" class="feedback-card__range"
+                           id="feedback-range" aria-label="میزان هم‌خوانی روایت با حس شما">
+                    <div class="feedback-card__labels d-flex justify-between">
+                        <span>دقیقا همین بود</span>
+                        <span>خیلی دور بود</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="action-card d-flex flex-column align-center">
+            <h3 class="action-card__title">اگر دوست داری حست کمی نرم‌تر بشه و قدمی برای حال بهتر تَنِت برداری:</h3>
+            <button class="action-card__btn btn d-flex align-center justify-center">
+                <svg class="action-card__btn-icon" xmlns="http://www.w3.org/2000/svg" width="33" height="10"
+                     viewBox="0 0 33 10" fill="none">
+                    <path d="M0.75 1.44299C0.75 1.44299 4.15729 9.00074 15.9336 9.00074C27.7099 9.00074 31.3037 1.44299 31.3037 1.44299"
+                          stroke="white" stroke-width="1.5" stroke-miterlimit="333.333" stroke-linecap="round" />
+                    <path d="M6.38477 0.750244C6.38477 0.750244 7.30553 3.52114 10.4878 3.52114C13.67 3.52114 14.6411 0.750244 14.6411 0.750244"
+                          stroke="white" stroke-width="1.5" stroke-miterlimit="333.333" stroke-linecap="round" />
+                    <path d="M17.4688 0.750244C17.4688 0.750244 18.3895 3.52114 21.5717 3.52114C24.754 3.52114 25.7251 0.750244 25.7251 0.750244"
+                          stroke="white" stroke-width="1.5" stroke-miterlimit="333.333" stroke-linecap="round" />
+                </svg>
+                <span>چند تمرین کوتاه</span>
+            </button>
+        </section>
+    </div>
+</main>
+<form style="display:none">@Html.AntiForgeryToken()</form>
+
+@section Scripts {
+    <script src="~/js/reflection.js" asp-append-version="true"></script>
+}

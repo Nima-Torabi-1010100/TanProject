@@ -1,0 +1,78 @@
+/* Age Picker */
+.age-picker__wrapper {
+    display: flex;
+    margin-top: 4rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.age-picker {
+    position: relative;
+    height: 4rem;
+    width: 40%;
+}
+
+.age-picker::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 5rem;
+    background: rgba(120, 142, 149, 0.4);
+    border-radius: 1.6rem;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.age-track {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 0 calc(50% - 32px);
+    cursor: grab;
+}
+
+.age-track::-webkit-scrollbar {
+    display: none;
+}
+
+.age-track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+}
+
+.age-option {
+    flex: 0 0 6rem;
+    scroll-snap-align: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: .4;
+    transition: opacity .15s ease, font-weight .15s ease, transform .15s ease;
+    user-select: none;
+}
+
+.age-option.is-active {
+    opacity: 1;
+    font-weight: 600;
+    transform: scale(1.1);
+}
+
+.result {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: rgba(46, 32, 49, 0.7);
+}
+
+.result b {
+    color: var(--color-text-primary);
+}
