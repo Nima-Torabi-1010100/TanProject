@@ -11,9 +11,9 @@
     margin-inline: -2.4rem;
 }
 
-.row>* {
-    padding-inline: 2.4rem;
-}
+    .row > * {
+        padding-inline: 2.4rem;
+    }
 
 .col {
     max-width: 100%;
@@ -61,11 +61,15 @@
     .container {
         max-width: 720px;
     }
+
+    .col-tablet-12 {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
     .container {
-        max-width: 100%;
+        max-width: 540px;
     }
 
     .col-mobile-12 {
@@ -73,4 +77,8 @@
     }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}

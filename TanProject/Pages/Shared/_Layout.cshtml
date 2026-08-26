@@ -20,6 +20,13 @@
 <body class="@bodyClass">
     @RenderSection("Decoration", required: false)
 
+    <div class="custom-alert" id="customAlert">
+        <div class="custom-alert__content">
+            <p class="custom-alert__message">لطفاً یک گزینه را انتخاب کنید.</p>
+            <button class="custom-alert__button" onclick="closeAlert()">باشه</button>
+        </div>
+    </div>
+
     <header class="site-header">
         @if (ViewData["HeaderType"]?.ToString() == "Secondary")
         {
@@ -30,14 +37,7 @@
             <partial name="_HeaderMain" />
         }
     </header>
-    <div class="custom-alert" id="customAlert">
-        <div class="custom-alert__content">
-            <p class="custom-alert__message">لطفاً یک گزینه را انتخاب کنید.</p>
-            <button class="custom-alert__button" onclick="closeAlert()">باشه</button>
-        </div>
-    </div>
     @RenderBody()
-
     @if (IsSectionDefined("Footer"))
     {
         @RenderSection("Footer", required: false)

@@ -25,7 +25,7 @@
                 <div class="card__wrapper d-flex">
                     <input class="card__input" type="text" id="username-input" data-i18n-attr="placeholder:welcomePage.nameInputPlaceholder"
                            placeholder="نام یا نام مستعار شما..." />
-                    <button class="card__submit-btn" id="next-btn" onclick="saveNameAndNext()" data-i18n-attr="aria-label:welcomePage.submitBtnAlt" aria-label="Submit">
+                    <button class="btn card__submit-btn" id="next-btn" onclick="saveNameAndNext()" data-i18n-attr="aria-label:welcomePage.submitBtnAlt" aria-label="Submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                             <path d="M25.5741 13.537H1.5" stroke="white" stroke-width="3" stroke-linecap="round"
                                   stroke-linejoin="round" />
@@ -48,18 +48,18 @@
                 </div>
                 <p class="result">سن انتخاب‌شده: <b id="result">۱۵</b></p>
             </section>
-            <section class="step-section hidden text-center">
-                <div class="dynamic-title d-flex justify-center align-center flex-column">
-                    <h1 class="dynamic-title__text fade-in">خیلی خوش اومدی <span class="accent" id="user-display-name">دوست من!</span></h1>
-                </div>
-            </section>
         </div>
+        <section class="step-section hidden text-center">
+            <div class="dynamic-title">
+                <h1 class="dynamic-title__text fade-in">خیلی خوش اومدی <span class="accent" id="user-display-name">دوست من!</span></h1>
+            </div>
+        </section>
     </div>
 </main>
 
 @section Footer {
     <footer class="footer">
-        <button class="next-btn hidden" onclick="goToNextStep()" aria-label="next">
+        <button class="btn next-btn hidden" onclick="goToNextStep()" aria-label="next">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <path d="M25.5741 13.537H1.5" stroke="#331E38" stroke-width="3" stroke-linecap="round"
                       stroke-linejoin="round" />

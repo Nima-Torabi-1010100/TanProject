@@ -111,13 +111,15 @@ changeLanguage(savedLang);
 //Menu
 //==========
 const kebabMenu = document.querySelector('.kebab-menu');
-const closeBtn = document.querySelector('.menu-cover__close');
+const toggleMenu = document.querySelector('.menu-toggle');
 const menuCover = document.getElementById('menu-cover');
+const closeBtn = document.querySelector('.menu-cover__close');
 
 kebabMenu?.addEventListener('click', () => {
     menuCover.classList.add('is-open');
     kebabMenu.classList.add('is-open');
 });
+
 closeBtn?.addEventListener('click', () => {
     if (!closeBtn)
         return;
@@ -217,6 +219,7 @@ function saveAgeAndNext() {
     if (nameSpan) {
         nameSpan.textContent = savedName + '!';
     }
+    document.querySelector(".card").classList.remove("card");
     goToNextSection();
 
     const nextBtn = document.querySelector('.next-btn');
@@ -235,7 +238,7 @@ function goToNextStep() {
     if (!dynamicTitle) return;
 
     if (currentMessageIndex < introMessages.length) {
-        debugger;
+
         dynamicTitle.classList.remove('fade-in');
 
         void dynamicTitle.offsetWidth;

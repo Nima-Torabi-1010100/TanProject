@@ -12,19 +12,19 @@
     width: 40%;
 }
 
-.age-picker::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6rem;
-    height: 5rem;
-    background: rgba(120, 142, 149, 0.4);
-    border-radius: 1.6rem;
-    pointer-events: none;
-    z-index: 0;
-}
+    .age-picker::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6rem;
+        height: 5rem;
+        background: rgba(120, 142, 149, 0.4);
+        border-radius: 1.6rem;
+        pointer-events: none;
+        z-index: 0;
+    }
 
 .age-track {
     position: relative;
@@ -40,14 +40,14 @@
     cursor: grab;
 }
 
-.age-track::-webkit-scrollbar {
-    display: none;
-}
+    .age-track::-webkit-scrollbar {
+        display: none;
+    }
 
-.age-track.is-dragging {
-    cursor: grabbing;
-    scroll-snap-type: none;
-}
+    .age-track.is-dragging {
+        cursor: grabbing;
+        scroll-snap-type: none;
+    }
 
 .age-option {
     flex: 0 0 6rem;
@@ -60,11 +60,11 @@
     user-select: none;
 }
 
-.age-option.is-active {
-    opacity: 1;
-    font-weight: 600;
-    transform: scale(1.1);
-}
+    .age-option.is-active {
+        opacity: 1;
+        font-weight: 600;
+        transform: scale(1.1);
+    }
 
 .result {
     text-align: center;
@@ -73,6 +73,28 @@
     color: rgba(46, 32, 49, 0.7);
 }
 
-.result b {
-    color: var(--color-text-primary);
+    .result b {
+        color: var(--color-text-primary);
+    }
+
+@media (max-width: 768px) {
+    .age-picker__wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .age-picker {
+        width: 50%;
+        border: .1rem solid var(--color-primary);
+        border-radius: 2rem;
+    }
+
+        .age-picker::before {
+            width: 3.2rem;
+            height: 3.2rem;
+        }
+
+    .age-option {
+        font-size: 1.6rem;
+    }
 }
