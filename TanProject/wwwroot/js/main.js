@@ -18,7 +18,11 @@
         lightIcon.classList.add('active');
     }
 
+    const profileDropdownName = document.querySelector('.profile-dropdown__name');
     const userName = document.getElementById('user-name');
+
+    if (profileDropdownName)
+        profileDropdownName.textContent = localStorage.getItem("userName") || 'دوست من ';
     if (userName)
         userName.textContent = localStorage.getItem("userName") || 'دوست من ';
 })();
@@ -106,6 +110,17 @@ function toggleLanguage() {
 
 const savedLang = localStorage.getItem('preferred_lang') || 'fa';
 changeLanguage(savedLang);
+
+//==========
+//Dorpdown Profile
+//==========
+const profileDropdown = document.querySelector('.profile-dropdown');
+const profileBtn = document.querySelector('.profile-btn');
+
+profileBtn?.addEventListener('click', () => {
+    const isOpen = profileDropdown.classList.toggle('is-open');
+    profileBtn.setAttribute('aria-expanded', isOpen);
+});
 
 //==========
 //Menu

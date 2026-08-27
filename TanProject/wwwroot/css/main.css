@@ -87,6 +87,7 @@ input,
 .logo,
 .btn,
 .profile-btn,
+.profile-dropdown__btn,
 .hero__cta,
 .menu-toggle,
 .dark-mode-btn,
@@ -331,6 +332,93 @@ main {
     position: relative;
 }
 
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-dropdown {
+    font-size: 1.6rem;
+    background: var(--color-neutral);
+    box-shadow: var(--shadow);
+    max-width: 20rem;
+    padding: 4rem 1.6rem;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    gap: 1rem;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%,-0.8rem);
+    z-index: 100;
+    transition: 0.2s ease;
+}
+
+    .profile-dropdown.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+
+.profile-dropdown__decoration {
+    position: fixed;
+    inset: 0;
+}
+
+.profile-dropdown__decoration--left,
+.profile-dropdown__decoration--right {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+}
+
+.profile-dropdown__decoration--left {
+    top: 0;
+    left: 0;
+    transform: translate(-20%, -20%) rotateZ(2deg);
+}
+
+.profile-dropdown__decoration--right {
+    bottom: 0;
+    right: 0;
+    transform: translate(40%, 40%) rotateZ(205deg);
+}
+
+.profile-dropdown__avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 8rem;
+}
+
+    .profile-dropdown__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.1) translate(0rem, 0rem);
+    }
+
+.profile-dropdown__name {
+    font-weight: 500;
+}
+
+.profile-dropdown__badge {
+    font-weight: 500;
+}
+
+.profile-dropdown__btn {
+    font-weight: 600;
+    background: none;
+    border: var(--card-border-width) solid var(--color-ink);
+    border-radius: 1.6rem;
+    transition: background .2s ease, color .2s ease;
+}
+
+    .profile-dropdown__btn:hover {
+        background: var(--color-primary);
+        color: var(--color-neutral);
+    }
+
 .profile-btn {
     font-size: 1.8rem;
     font-weight: 500;
@@ -353,6 +441,8 @@ main {
 /* Hero */
 .hero {
     margin-top: 6rem;
+    position: relative;
+    z-index: 0;
 }
 
 .hero__title {
@@ -2168,7 +2258,7 @@ main {
         display: flex;
     }
 
-    .profile-btn {
+    .profile-wrapper {
         display: none;
     }
 
@@ -2505,13 +2595,6 @@ main {
     }
 
         .sensation-panel__pagination:before {
-            /*            position: absolute;
-            white-space: nowrap;
-            left: 100%;
-            top: 0;
-            bottom: 0;
-            transform: translateX(25%);
-            font-size: 1.2rem;*/
             display: none;
         }
 
