@@ -84,7 +84,8 @@
     }
 
     .age-picker {
-        width: 50%;
+        width: 100%;
+        max-width: 18rem;
         border: .1rem solid var(--color-primary);
         border-radius: 2rem;
     }

@@ -74,7 +74,7 @@ const translations = {
                 "editSensation": "ایجاد تغییر",
                 "removeSensation": "حذف حس",
                 "reset": "ریست",
-                "continue": "ادامه"
+                "continue": "گام بعدی"
             },
             "intensity": {
                 "high": "شدید",
@@ -187,7 +187,7 @@ const translations = {
                 "editSensation": "Edit Sensation",
                 "removeSensation": "Remove Sensation",
                 "reset": "Reset",
-                "continue": "Continue"
+                "continue": "Next Step"
             },
             "intensity": {
                 "high": "Intense",

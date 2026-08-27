@@ -37,6 +37,12 @@
 
     const paginationTitle = document.querySelector(".sensation-panel__pagination");
 
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    const panelWrapper = document.getElementById('bodyMappingPanel');
+    const handle = document.querySelector('.sensation-panel__handle');
+
+    const continueBtn = document.getElementById('continue-btn');
+
     const STORAGE_KEY = 'tan_body_sensations';
     let sensationsList = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
@@ -49,6 +55,11 @@
 
     document.querySelectorAll('.body-part').forEach(part => {
         part.addEventListener('click', () => {
+
+            if (isMobile() && panelWrapper) {
+                panelWrapper.classList.add('is-open');
+            }
+
             const partKey = part.dataset.part;
 
             document.querySelectorAll('.body-part--selected')
@@ -64,8 +75,8 @@
     });
 
     document.querySelectorAll('.sensation-panel__option').forEach(option => {
-        debugger;
         option.addEventListener('click', () => {
+
             document.querySelectorAll('.sensation-panel__option--selected')
                 .forEach(el => el.classList.remove('sensation-panel__option--selected'));
 
@@ -99,9 +110,13 @@
             return;
         }
         const currentLanguage = document.documentElement.lang || 'fa';
-        instruction.textContent = stepNumber === 1
-            ? translations[currentLanguage].bodyMapping.instruction1
-            : translations[currentLanguage].bodyMapping.instruction2;
+
+        animateText(instruction,
+            stepNumber === 1
+                ? translations[currentLanguage].bodyMapping.instruction1
+                : translations[currentLanguage].bodyMapping.instruction2
+        )
+
         if (panel) panel.setAttribute('data-step', stepNumber.toString());
         updateNavButtons(stepNumber);
     }
@@ -214,7 +229,7 @@
             const hasEntry = i < sensationsList.length;
             dot.classList.toggle('sensation-panel__dot--active', i < sensationsList.length);
             dot.classList.toggle('sensation-panel__dot--editing', i === editingIndex);
-            dot.disabled = !hasEntry;
+            //dot.disabled = !hasEntry;
         });
     }
     function loadEntryIntoPanel(index) {
@@ -258,8 +273,55 @@
             if (sensationsList[i]) {
                 loadEntryIntoPanel(i);
             }
+            else {
+                showAlert("حسی ثبت نشده!");
+            }
         });
     });
+
+    continueBtn?.addEventListener('click', () => {
+        if (sensationsList.length === 0) {
+            showAlert("حداقل باید یک حس ثبت کنی تا بتونی ادامه بدی. ");
+            return;
+        }
+        window.location.href = "/Chat";
+    })
+
+    if (panelWrapper || handle) {
+        const CLOSE_THRESHOLD = 80;
+        let startY = 0;
+        let currentY = 0;
+        let dragging = false;
+
+
+        handle.addEventListener('pointerdown', (e) => {
+            dragging = true;
+            startY = e.clientY;
+            currentY = 0;
+            panelWrapper.style.transition = 'none';
+            handle.setPointerCapture(e.pointerId);
+        });
+
+        handle.addEventListener('pointermove', (e) => {
+            if (!dragging) return;
+            currentY = Math.max(0, e.clientY - startY);
+            panelWrapper.style.transform = `translateY(${currentY}px)`;
+        });
+
+        function endDrag() {
+            if (!dragging) return;
+            dragging = false;
+            panelWrapper.style.transition = '';
+            panelWrapper.style.transform = '';
+
+            if (currentY > CLOSE_THRESHOLD) {
+                panelWrapper.classList.remove('is-open');
+            }
+            currentY = 0;
+        };
+        handle.addEventListener('pointerup', endDrag);
+        handle.addEventListener('pointercancel', endDrag);
+    }
 
     resetCurrentSelection();
     renderDots();

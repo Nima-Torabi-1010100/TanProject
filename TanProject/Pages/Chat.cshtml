@@ -14,8 +14,8 @@
             <div class="decoration__shape decoration__shape--green decoration__shape--welcome-secondary"></div>
             <div class="decoration__shape decoration__shape--purple decoration__shape--welcome-tertiary"></div>
         </div>
-        <div class="bg__chat-wrapper">
-            <svg class="bg__chat-top-left" xmlns="http://www.w3.org/2000/svg" width="213" height="239"
+        <div class="decoration__chat-wrapper">
+            <svg class="decoration__chat-top-left" xmlns="http://www.w3.org/2000/svg" width="213" height="239"
                  viewBox="0 0 213 239" fill="none">
                 <path d="M180.118 131.58C266.314 0.235305 161.321 -9.30682 105.941 4.90087C-20.5709 37.358 -3.10526 119.32 7.03548 177.506C17.1762 235.692 72.3732 295.762 180.118 131.58Z"
                       fill="url(#paint0_linear_146_458)" fill-opacity="0.7" />
@@ -27,7 +27,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <svg class="bg__chat-top-right" xmlns="http://www.w3.org/2000/svg" width="210" height="246"
+            <svg class="decoration__chat-top-right" xmlns="http://www.w3.org/2000/svg" width="210" height="246"
                  viewBox="0 0 210 246" fill="none">
                 <path d="M134.908 24.9769C31.7925 -46.4592 10.1468 51.7639 0.8579 114.272C-10.5143 190.799 93.662 292.862 165.842 222.257C221.402 167.91 238.023 96.4129 134.908 24.9769Z"
                       fill="url(#paint0_linear_146_459)" fill-opacity="0.7" />
@@ -39,7 +39,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <svg class="bg__chat-bottom-left" xmlns="http://www.w3.org/2000/svg" width="256" height="251"
+            <svg class="decoration__chat-bottom-left" xmlns="http://www.w3.org/2000/svg" width="256" height="251"
                  viewBox="0 0 256 251" fill="none">
                 <path d="M72.8391 1.80419C-72.7609 -16.9958 47.1094 115.652 34.3391 189.304C12.8391 313.304 219.339 212.804 245.839 189.304C272.339 165.804 254.839 25.3042 72.8391 1.80419Z"
                       fill="url(#paint0_linear_146_457)" fill-opacity="0.7" />
@@ -51,7 +51,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-            <svg class="bg__chat-bottom-right" xmlns="http://www.w3.org/2000/svg" width="285" height="284"
+            <svg class="decoration__chat-bottom-right" xmlns="http://www.w3.org/2000/svg" width="285" height="284"
                  viewBox="0 0 285 284" fill="none">
                 <path d="M227.286 244.743C324.745 171.264 281.011 65.1061 213.313 8.85423C174.472 -23.4197 110.187 36.7574 86.9725 121.003C73.6543 169.334 34.6543 160.334 18.4585 175.834C-54.7852 245.931 105.462 336.591 227.286 244.743Z"
                       fill="url(#paint0_linear_146_456)" fill-opacity="0.7" />
@@ -69,7 +69,7 @@
 <main class="main">
     <div class="container">
         <div class="chat d-flex flex-column align-center" id="tan-chat">
-            <div class="chat__header">
+            <div class="chat__header d-flex justify-center align-center">
                 <h2 class="chat__title">
                     <span data-i18n="chat.headerTitle">
                         @Localizer["chat.headerTitle"]
@@ -130,7 +130,7 @@
                        placeholder="@Localizer["chat.inputPlaceholder"]"
                        autocomplete="off"
                        dir="rtl" />
-                <button type="submit" class="chat__send-btn d-flex justify-center align-center"
+                <button type="submit" class="btn chat__send-btn"
                         id="chat-send"
                         aria-label="@Localizer["chat.sendButtonLabel"]"
                         data-i18n-aria-label="chat.sendButtonLabel">

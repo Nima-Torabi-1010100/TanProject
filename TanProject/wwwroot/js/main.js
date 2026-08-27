@@ -264,3 +264,12 @@ function showAlert(message) {
 function closeAlert() {
     customAlert.classList.remove('active');
 }
+
+function animateText(element, text) {
+    element.classList.remove('fade-in');
+
+    void element.offsetWidth;
+    element.textContent = text;
+
+    element.classList.add('fade-in');
+}

@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    const ball = document.querySelector('.breathwork__ball img');
     const ballContainer = document.querySelector('.breathwork__ball');
+    const ball = document.querySelector('.breathwork__ball img');
     const guideText = document.querySelector('.breathwork__guide h2');
     const counterText = document.querySelector('.breathwork__counter');
     const resetBtn = document.querySelector('.breathwork__reset-btn');
@@ -28,10 +28,7 @@
 
     function runIntro() {
         if (introIndex < introSteps.length) {
-            guideText.classList.remove('fade-in');
-            void guideText.offsetWidth;
-            guideText.textContent = introSteps[introIndex].text;
-            guideText.classList.add('fade-in');
+            animateText(guideText, introSteps[introIndex].text);
             timerTimeout = setTimeout(() => {
                 introIndex++;
                 runIntro();
@@ -47,7 +44,7 @@
         isRunning = true;
         cycleCount = 1;
         ballContainer.classList.remove('idle');
-        ball.style.transform = "scale(1)";
+        ball.style.transform = "scale(0.82)";
         executeCycle();
     }
 
@@ -66,7 +63,7 @@
         counterText.textContent = `${formatDigits(maxCycles)} / ${formatDigits(cycleCount)}`;
 
         guideText.textContent = "به آرامی نفس بکش...";
-        ball.style.transform = "scale(1.2)";
+        ball.style.transform = "scale(1)";
 
         timerTimeout = setTimeout(() => {
 
@@ -75,7 +72,7 @@
             timerTimeout = setTimeout(() => {
 
                 guideText.textContent = "آرام نفس را بیرون بده...";
-                ball.style.transform = "scale(1)";
+                ball.style.transform = "scale(0.82)";
 
                 timerTimeout = setTimeout(() => {
 
@@ -96,7 +93,7 @@
     function finishBreathing() {
         isRunning = false;
         guideText.textContent = "پایان تمرین. عالی بود!";
-        ball.style.transform = "scale(1)";
+        ball.style.transform = "scale(0.82)";
         ballContainer.classList.add('idle');
 
 
@@ -109,13 +106,14 @@
 
     resetBtn.addEventListener('click', () => {
         clearTimeout(timerTimeout);
-        ball.style.transform = "scale(1)";
+        ball.style.transform = "scale(0.82)";
         introIndex = 0;
         cycleCount = 0;
         counterText.textContent = `۱ / ۴`;
         ballContainer.classList.remove('idle');
         requestAnimationFrame(() => {
             ballContainer.classList.add('idle');
+            skipBtn.textContent = "عبور از تمرین";
             runIntro();
         });
     });

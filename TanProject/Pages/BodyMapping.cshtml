@@ -7,7 +7,7 @@
     ViewData["BodyClass"] = "page-welcome";
     ViewData["TranslationKey"] = "bodyMapping.title";
 }
-@section Decoration{
+@section Decoration {
     <div class="decoration">
         <div class="decoration__shapes">
             <div class="decoration__shape decoration__shape--yellow decoration__shape--hero-primary"></div>
@@ -20,16 +20,16 @@
     <div class="body-mapping">
         <div class="container">
             <div class="body-mapping__header">
-                <h2 class="body-mapping__description text-center" data-i18n="bodyMapping.instruction1">
+                <h2 class="body-mapping__description text-center fade-in" data-i18n="bodyMapping.instruction1">
                     @Localizer["bodyMapping.instruction1"]
                 </h2>
             </div>
             <div class="row">
-                <div class="col-8 d-flex flex-column align-center">
+                <div class="col-8 col-mobile-12 d-flex flex-column align-center body-mapping__panel-wrapper" id="bodyMappingPanel">
                     <div class="sensation-panel d-flex flex-column align-center justify-around" data-step="1">
-
+                        <div class="sensation-panel__handle"></div>
                         <div class="sensation-panel__step sensation-panel__step--1 d-flex flex-column align-center justify-between">
-                            <div class="sensation-panel__title">
+                            <div class="sensation-panel__title fade-in">
                                 <h3>
                                     <span data-i18n="bodyMapping.questionPrefix">@Localizer["bodyMapping.questionPrefix"]</span>
                                     <span id="sensation-panel__title" data-i18n="bodyMapping.bodyParts.hand">@Localizer["bodyMapping.bodyParts.hand"]</span>
@@ -197,11 +197,11 @@
                             </svg>
                             <span data-i18n="bodyMapping.actions.reset">@Localizer["bodyMapping.actions.reset"]</span>
                         </button>
-                        <button class="btn btn--primary" type="button" data-i18n="bodyMapping.actions.continue">@Localizer["bodyMapping.actions.continue"]</button>
+                        <button id="continue-btn" class="btn btn--primary" type="button" data-i18n="bodyMapping.actions.continue">@Localizer["bodyMapping.actions.continue"]</button>
                     </div>
 
                 </div>
-                <div class="col-4">
+                <div class="col-4 col-mobile-12">
                     <div class="body-map__image d-flex justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="330" height="612" viewBox="-10 -18 350 648"
                              fill="none">

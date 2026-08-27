@@ -65,6 +65,10 @@
     .col-tablet-12 {
         width: 100%;
     }
+
+    .col-tablet-6 {
+        width: 50%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -75,10 +79,22 @@
     .col-mobile-12 {
         width: 100%;
     }
+
+    .col-mobile-6 {
+        width: 50%;
+    }
 }
 
 @media (max-width: 576px) {
     .container {
         max-width: 100%;
+    }
+
+    .col-small-12 {
+        width: 100%;
+    }
+
+    .col-small-6 {
+        width: 50%;
     }
 }
