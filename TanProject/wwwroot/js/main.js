@@ -111,20 +111,30 @@ changeLanguage(savedLang);
 //Menu
 //==========
 const kebabMenu = document.querySelector('.kebab-menu');
-const toggleMenu = document.querySelector('.menu-toggle');
+const menuToggle = document.querySelector('.menu-toggle');
 const menuCover = document.getElementById('menu-cover');
 const closeBtn = document.querySelector('.menu-cover__close');
 
+menuToggle?.addEventListener('click', () => {
+    menuCover?.classList.add('is-open');
+    menuToggle.classList.add('is-open');
+    menuCover?.removeAttribute('aria-hidden');
+    closeBtn?.focus();
+});
+
+
 kebabMenu?.addEventListener('click', () => {
-    menuCover.classList.add('is-open');
+    menuCover?.classList.add('is-open');
     kebabMenu.classList.add('is-open');
+    menuCover?.removeAttribute('aria-hidden');
+    closeBtn?.focus();
 });
 
 closeBtn?.addEventListener('click', () => {
-    if (!closeBtn)
-        return;
-    menuCover.classList.remove('is-open');
-    kebabMenu.classList.remove('is-open');
+    menuCover?.classList.remove('is-open');
+    menuToggle?.classList.remove('is-open');
+    kebabMenu?.classList.remove('is-open');
+    menuToggle?.focus();
 });
 
 //==========
