@@ -1660,6 +1660,10 @@ main {
     min-height: 58rem;
 }
 
+.reflection__mobile {
+    display: none;
+}
+
 .reflection__img {
     flex-basis: 50%;
 }
@@ -1678,11 +1682,11 @@ main {
 }
 
 .reflection__head {
-    gap: rem;
+    gap: 1rem;
 }
 
 .reflection__title {
-    font-size: 3.2rem;
+    font-size: clamp(2.2rem, 3vw, 3.2rem);
     font-weight: 600;
     margin: 0;
     user-select: none;
@@ -1705,10 +1709,14 @@ main {
     }
 
 .reflection__action {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 500;
     width: 23rem;
-    position: relative;
+    max-width: 100%;
+    color: #fff;
     background-color: rgba(112, 105, 147, .7);
     box-shadow: none;
+    position: relative;
     transition: background-color .2s ease;
 }
 
@@ -1734,13 +1742,14 @@ main {
 
 .feedback-card__title,
 .action-card__title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 1.8vw, 2rem);
     font-weight: 500;
     user-select: none;
+    text-wrap: wrap;
 }
 
 .feedback-card__subtitle {
-    font-size: 1.6rem;
+    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
     font-weight: 400;
     color: rgba(51, 30, 56, .8);
 }
@@ -1814,7 +1823,11 @@ main {
 }
 
 .action-card__btn {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
     background-color: #788E95;
+    box-shadow: 0 .1rem .4rem rgba(46, 32, 49, 0.15);
     gap: 1rem;
     transition: background-color .2s ease;
 }
@@ -2488,6 +2501,59 @@ main {
             background: var(--color-primary);
             border: none;
         }
+    /* Reflection Page */
+    .reflection {
+        flex-direction: column;
+        margin-top: 3rem;
+        border-radius: 3rem;
+        padding: 2rem 0 4rem;
+    }
+
+    .reflection__img {
+        padding-inline: 6rem;
+        flex-basis: auto;
+        height: 24rem;
+    }
+
+        .reflection__img img {
+            border-radius: 3rem;
+        }
+
+    .reflection__body {
+        padding-inline: 6rem;
+        gap: 1.5rem;
+    }
+
+    .reflection__head {
+        display: none;
+    }
+
+    .reflection__mobile {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .reflection__mobile-title {
+        font-size: clamp(2.2rem, 3vw, 3.2rem);
+        font-weight: 600;
+        margin: 0;
+        user-select: none;
+    }
+
+    .reflection__mobile-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .feedback-card__title {
+        margin-bottom: 1rem;
+    }
+
+    .feedback-card__title,
+    .action-card__title {
+        text-align: center;
+    }
 }
 
 @media (max-width: 576px) {
@@ -2637,5 +2703,14 @@ main {
 
     .sensation-panel__nav-btn {
         display: none;
+    }
+
+    /* Reflection Page */
+    .reflection__img {
+        padding-inline: 4rem;
+    }
+
+    .reflection__body {
+        padding-inline: 4rem;
     }
 }
