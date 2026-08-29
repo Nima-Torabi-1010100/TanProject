@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TanProject.Pages.Shared
+namespace TanProject.Pages
 {
-    public class WelcomeModel : PageModel
+    public class DashboardModel : PageModel
     {
         public void OnGet()
         {

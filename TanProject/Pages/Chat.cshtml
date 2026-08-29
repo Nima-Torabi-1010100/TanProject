@@ -1,5 +1,4 @@
 ﻿@page
-@inject Microsoft.Extensions.Localization.IStringLocalizer<TanProject.Pages.BodyMappingModel> Localizer
 @model TanProject.Pages.ChatModel
 @{
     ViewData["Title"] = "گام سوم";
@@ -71,12 +70,8 @@
         <div class="chat d-flex flex-column align-center" id="tan-chat">
             <div class="chat__header d-flex justify-center align-center">
                 <h2 class="chat__title">
-                    <span data-i18n="chat.headerTitle">
-                        @Localizer["chat.headerTitle"]
-                    </span>
-                    <span data-i18n="chat.headerAccent" class="accent">
-                        @Localizer["chat.headerAccent"]
-                    </span>
+                    <span data-i18n="chat.headerTitle"></span>
+                    <span data-i18n="chat.headerAccent" class="accent"></span>
                 </h2>
             </div>
 
@@ -127,12 +122,10 @@
                        class="chat__input"
                        id="chat-input"
                        data-i18n-attr="placeholder:chat.inputPlaceholder"
-                       placeholder="@Localizer["chat.inputPlaceholder"]"
                        autocomplete="off"
                        dir="rtl" />
                 <button type="submit" class="btn chat__send-btn"
                         id="chat-send"
-                        aria-label="@Localizer["chat.sendButtonLabel"]"
                         data-i18n-aria-label="chat.sendButtonLabel">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                         <path d="M25.5741 13.537H1.5" stroke="white" stroke-width="3" stroke-linecap="round"
@@ -143,7 +136,7 @@
                 </button>
             </form>
         </div>
-        <button class="btn btn--secondary chat__finish-btn" type="button" data-i18n="chat.finishConversation">@Localizer["chat.finishConversation"]</button>
+        <button class="btn btn--secondary chat__finish-btn" type="button" data-i18n="chat.finishConversation"></button>
     </div>
 </main>
 @section Footer {

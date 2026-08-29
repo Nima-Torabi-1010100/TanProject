@@ -112,6 +112,28 @@ const translations = {
             "inputPlaceholder": "توصیف کن...",
             "sendButtonLabel": "ارسال پیام",
             "finishConversation": "اتمام گفت‌وگو"
+        },
+        "reflection": {
+            "title": "تن | گام چهارم",
+            "experienceTitle": "روایت حس شما",
+            "shareExperience": "اشتراک گذاری این تجربه!",
+            "feedbackTitle": "این روایت چقدر با حس واقعی امروزت هم‌خوانی داشت؟",
+            "feedbackSubtitle": "پاسخ درست یا غلط وجود ندارد؛ این فقط برای این است که «تَن» کمی بهتر همراهت باشد.",
+            "feedbackStatus": "نزدیک",
+            "feedbackAriaLabel": "میزان هم‌خوانی روایت با حس شما",
+            "feedbackExact": "دقیقاً همین بود",
+            "feedbackFar": "خیلی دور بود",
+            "actionTitle": "اگر دوست داری حست کمی نرم‌تر بشه و قدمی برای حال بهتر تَنِت برداری:",
+            "actionButton": "چند تمرین کوتاه"
+        },
+        "dashboard": {
+            "title": "تَن من",
+            "profileImageAlt": "تصویر پروفایل",
+            "presenceText": "حضور تو در تَن",
+            "editName": "ویرایش نام",
+            "deleteAllData": "حذف تمامی اطلاعات",
+            "galleryTitle": "بوم‌های ثبت شده من",
+            "privacyNote": "روایت‌های بدنی شما فقط روی مرورگر خودتان ذخیره می‌شوند و بدون اجازه شما در اختیار دیگران قرار نمی‌گیرند."
         }
     },
     "en": {
@@ -226,6 +248,28 @@ const translations = {
             "inputPlaceholder": "Describe it...",
             "sendButtonLabel": "Send message",
             "finishConversation": "Finish Conversation"
+        },
+        "reflection": {
+            "title": "Tan | Step 4",
+            "experienceTitle": "Your Sensation's Story",
+            "shareExperience": "Share This Experience!",
+            "feedbackTitle": "How closely did this story match how you really felt today?",
+            "feedbackSubtitle": "There are no right or wrong answers; this is simply to help Tan accompany you a little better.",
+            "feedbackStatus": "Close",
+            "feedbackAriaLabel": "How closely the story matches your sensations",
+            "feedbackExact": "Exactly right",
+            "feedbackFar": "Very far off",
+            "actionTitle": "If you'd like to soften what you're feeling and take a small step toward feeling better in your body:",
+            "actionButton": "A Few Short Exercises"
+        },
+        "dashboard": {
+            "title": "My Tan",
+            "profileImageAlt": "Profile picture",
+            "presenceText": "time you've been with Tan",
+            "editName": "Edit Name",
+            "deleteAllData": "Delete All Data",
+            "galleryTitle": "My Saved Canvases",
+            "privacyNote": "Your body narratives are stored only on your browser and are never shared with others without your permission."
         }
     }
 }
