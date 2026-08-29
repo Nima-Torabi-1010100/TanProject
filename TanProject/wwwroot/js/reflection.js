@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const image = document.querySelector('.reflection__img');
     const narrativeWrapper = document.querySelector('.reflection__narrative-wrapper');
-
+    debugger;
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
         hideLoadingState(image, narrativeWrapper);
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
         const data = await response.json();
-        debugger;
+
         hideLoadingState(image, narrativeWrapper);
         renderReflection(data);
 
@@ -49,6 +49,49 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+document.querySelector('.reflection__action').addEventListener('click', async () => {
+    const shareCard = document.getElementById('reflection-share-card');
+    const shareImage = document.getElementById('share-card-image');
+    const narrative = document.querySelector('.reflection__narrative');
+
+    shareImage.src = document.getElementById('reflection__image').src;
+    document.getElementById('share-card-narrative').innerHTML = narrative.innerHTML;
+
+    await new Promise((resolve) => {
+        if (shareImage.complete) {
+            resolve();
+        } else {
+            shareImage.onload = resolve;
+        }
+    });
+
+    const canvas = await html2canvas(shareCard, {
+        backgroundColor: '#fff',
+        scale: 2
+    });
+
+    canvas.toBlob(async (blob) => {
+        const file = new File(
+            [blob],
+            'tan-reflection.png',
+            { type: 'image/png' }
+        );
+
+        if (navigator.canShare?.({ files: [file] })) {
+            await navigator.share({
+                files: [file],
+                title: 'تجربه‌ی تن'
+            });
+        } else {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'tan-reflection.png';
+            link.click();
+
+            URL.revokeObjectURL(link.href);
+        }
+    }, 'image/png');
+});
 function renderReflection({ imageUrl, paragraphs }) {
     showImage(imageUrl);
     const narrative = document.querySelector('.reflection__narrative');
@@ -105,3 +148,4 @@ function getPersianDate() {
         month: 'long'
     }).format(new Date());
 }
+

@@ -59,7 +59,6 @@
     }
 
     async function postJson(handler, body) {
-        debugger;
         const res = await fetch(window.location.pathname + '?handler=' + handler, {
             method: 'POST',
             headers: {

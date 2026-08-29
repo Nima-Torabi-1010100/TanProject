@@ -346,7 +346,7 @@ function animateText(element, text) {
 //==========
 //Dashboard
 //==========
-document.getElementById('deleteAllDataBtn').addEventListener('click', function () {
+document.getElementById('deleteAllDataBtn')?.addEventListener('click', function () {
     document.cookie.split(';').forEach(function (cookie) {
         const eqPos = cookie.indexOf('=');
         const name = (eqPos > -1 ? cookie.substr(0, eqPos) : cookie).trim();

@@ -82,7 +82,7 @@
                     <path d="M640.5545,188.0261c86.5383,0,140.6246,93.68,97.3555,168.6242l-177.6492,307.6974c-21.6346,37.4721-59.495,56.2081-97.3555,56.2081s-75.7208-18.736-97.3555-56.2081l-177.6492-307.6974c-43.2692-74.9442,10.8175-168.6242,97.3555-168.6242h355.2983M640.5545,58.0261h-355.2983c-44.1934,0-87.3358,11.8883-124.7642,34.3796-35.1055,21.0954-64.5583,51.1204-85.1746,86.8287-20.6163,35.7083-31.8921,76.2279-32.6088,117.1775-.7638,43.6592,10.5121,86.9662,32.6088,125.2383l177.6492,307.6974c22.0967,38.2725,53.9637,69.6913,92.1558,90.8593,35.8217,19.8541,76.5504,30.3486,117.783,30.3486s81.9613-10.4945,117.783-30.3486c38.192-21.168,70.0591-52.5867,92.1558-90.8593l177.6493-307.6974c22.0967-38.2721,33.3723-81.5788,32.6086-125.2383-.7166-40.95-11.9924-81.4692-32.6086-117.1775-20.6165-35.7087-50.0692-65.7333-85.1747-86.8287-37.4283-22.4913-80.5708-34.3796-124.7642-34.3796h0Z"
                           fill="url(#linear-gradient)" stroke-width="0" />
                 </svg>
-                <h2 class="reflection__mobile-title" data-i18n="reflection.experienceTitle">]</h2>
+                <h2 class="reflection__mobile-title" data-i18n="reflection.experienceTitle"></h2>
             </div>
             <div class="reflection__img">
                 <img id="reflection__image" src="">
@@ -107,7 +107,7 @@
                 </div>
                 <div class="reflection__narrative-wrapper">
                     <div class="reflection__narrative  d-flex flex-column">
-                </div>
+                    </div>
                 </div>
                 <button class="reflection__action btn d-flex justify-center align-center">
                     <span data-i18n="reflection.shareExperience"></span>
@@ -162,9 +162,36 @@
             </button>
         </section>
     </div>
+    <div id="reflection-share-card" class="reflection-share-card">
+        <div class="reflection-share-card__head">
+            <svg class="reflection-share-card__icon" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="326.6054mm"
+                 height="326.6054mm" viewBox="0 0 925.8107 925.8107">
+                <defs>
+                    <linearGradient id="linear-gradient" x1="42.6723" y1="454.2908" x2="883.1384"
+                                    y2="454.2908" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#a0c1b9" />
+                        <stop offset="1" stop-color="#706993" />
+                    </linearGradient>
+                </defs>
+                <path d="M640.5545,188.0261c86.5383,0,140.6246,93.68,97.3555,168.6242l-177.6492,307.6974c-21.6346,37.4721-59.495,56.2081-97.3555,56.2081s-75.7208-18.736-97.3555-56.2081l-177.6492-307.6974c-43.2692-74.9442,10.8175-168.6242,97.3555-168.6242h355.2983M640.5545,58.0261h-355.2983c-44.1934,0-87.3358,11.8883-124.7642,34.3796-35.1055,21.0954-64.5583,51.1204-85.1746,86.8287-20.6163,35.7083-31.8921,76.2279-32.6088,117.1775-.7638,43.6592,10.5121,86.9662,32.6088,125.2383l177.6492,307.6974c22.0967,38.2725,53.9637,69.6913,92.1558,90.8593,35.8217,19.8541,76.5504,30.3486,117.783,30.3486s81.9613-10.4945,117.783-30.3486c38.192-21.168,70.0591-52.5867,92.1558-90.8593l177.6493-307.6974c22.0967-38.2721,33.3723-81.5788,32.6086-125.2383-.7166-40.95-11.9924-81.4692-32.6086-117.1775-20.6165-35.7087-50.0692-65.7333-85.1747-86.8287-37.4283-22.4913-80.5708-34.3796-124.7642-34.3796h0Z"
+                      fill="url(#linear-gradient)" stroke-width="0" />
+            </svg>
+            <h2 class="reflection-share-card__title" data-i18n="reflection.experienceTitle"></h2>
+        </div>
+        <div class="reflection-share-card__content">
+            <img id="share-card-image" class="reflection-share-card__image" src="" alt="">
+            <div id="share-card-narrative" class="reflection-share-card__narrative"></div>
+            <div class="reflection-share-card__footer">
+                ساخته‌شده توسط تَن
+            </div>
+        </div>
+    </div>
 </main>
+
 <form style="display:none">@Html.AntiForgeryToken()</form>
 
 @section Scripts {
     <script src="~/js/reflection.js" asp-append-version="true"></script>
+    <script src="~/js/html2canvas.min.js"></script>
 }

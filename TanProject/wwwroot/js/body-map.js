@@ -1,5 +1,8 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
-    localStorage.removeItem(CACHE_KEY);
+﻿const CACHE_KEY = 'tan_reflection_result';
+document.addEventListener('DOMContentLoaded', () => {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached)
+        localStorage.removeItem(CACHE_KEY);
 
     const partLabels = {
         'head': 'سر',
