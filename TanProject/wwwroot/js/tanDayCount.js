@@ -62,5 +62,4 @@ function getOrdinal(num, lang) {
     if (!userDayCount && !localStorage.getItem('userName')) return;
     const lang = document.documentElement.lang || 'fa';
     userDayCount.textContent = getOrdinal(getTanDayCount(), lang);
-
 })();

@@ -1,4 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+    localStorage.removeItem(CACHE_KEY);
 
     const partLabels = {
         'head': 'سر',

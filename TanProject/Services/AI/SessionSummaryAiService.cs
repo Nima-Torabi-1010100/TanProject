@@ -43,9 +43,11 @@ namespace TanProject.Services.AI
         public async Task<string> GenerateReflectionAsync(
             string emotion, string bodyArea, IReadOnlyList<ChatTurn> conversationHistory, CancellationToken ct = default)
         {
+            var imageDescription = TanImageDescription.ByEmotion.GetValueOrDefault(emotion, TanImageDescription.ByEmotion["Calm"]);
             var prompt = TanSystemPrompt.ReflectionTemplate
                 .Replace("{{emotion}}", emotion)
-                .Replace("{{body_area}}", bodyArea);
+                .Replace("{{body_area}}", bodyArea)
+                .Replace("{{image_description}}", imageDescription);
 
             var result = await _aiService.CompleteAsync(prompt, conversationHistory, ct: ct);
             return result.Success ? result.Text : string.Empty;

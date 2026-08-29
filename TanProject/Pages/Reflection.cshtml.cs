@@ -50,14 +50,14 @@ namespace TanProject.Pages
                 .ToArray();
         private static readonly Dictionary<string, string> EmotionImageMap = new()
         {
-            ["Grief"] = "/images/reflection/grief.jpg",
-            ["Anxiety"] = "/images/reflection/anxiety.jpg",
-            ["Anger"] = "/images/reflection/anger.jpg",
+            ["Anger"] = "/images/reflection/anger.jpeg",
+            ["Anxiety"] = "/images/reflection/anxiety.jpeg",
+            ["Calm"] = "/images/reflection/calm.jpeg",
+            ["Coldness"] = "/images/reflection/coldness.jpeg",
+            ["Grief"] = "/images/reflection/grief.jpeg",
+            ["Numbness"] = "/images/reflection/numbness.jpeg",
+            ["Relief"] = "/images/reflection/relief.jpeg",
             ["Tension"] = "/images/reflection/tension.jpeg",
-            ["Numbness"] = "/images/reflection/numbness.jpg",
-            ["Coldness"] = "/images/reflection/coldness.jpg",
-            ["Relief"] = "/images/reflection/relief.jpg",
-            ["Calm"] = "/images/reflection/calm.jpg",
         };
     }
 }

@@ -43,11 +43,14 @@ let currentMessageIndex = 0;
     const profileNavLink = document.getElementById('profileNavBtn');
     const profileDropdownName = document.querySelector('.profile-dropdown__name');
     const userName = document.getElementById('user-name');
+    const dashboardName = document.querySelector('.profile-card__name');
 
     if (profileDropdownName)
         profileDropdownName.textContent = savedName || 'دوست من ';
     if (userName)
         userName.textContent = savedName || 'دوست من ';
+    if (dashboardName)
+        dashboardName.textContent = savedName || 'دوست من';
 
     if (savedName && savedAge) {
         profileWrapper?.classList.add('is-visible');
@@ -339,3 +342,16 @@ function animateText(element, text) {
 
     element.classList.add('fade-in');
 }
+
+//==========
+//Dashboard
+//==========
+document.getElementById('deleteAllDataBtn').addEventListener('click', function () {
+    document.cookie.split(';').forEach(function (cookie) {
+        const eqPos = cookie.indexOf('=');
+        const name = (eqPos > -1 ? cookie.substr(0, eqPos) : cookie).trim();
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+    });
+    localStorage.clear();
+    window.location.href = '/Index';
+});

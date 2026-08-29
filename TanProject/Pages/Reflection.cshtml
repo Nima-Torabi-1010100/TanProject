@@ -105,7 +105,9 @@
                     </svg>
                     <h2 class="reflection__title" data-i18n="reflection.experienceTitle"></h2>
                 </div>
-                <div class="reflection__narrative d-flex flex-column">
+                <div class="reflection__narrative-wrapper">
+                    <div class="reflection__narrative  d-flex flex-column">
+                </div>
                 </div>
                 <button class="reflection__action btn d-flex justify-center align-center">
                     <span data-i18n="reflection.shareExperience"></span>
@@ -164,5 +166,5 @@
 <form style="display:none">@Html.AntiForgeryToken()</form>
 
 @section Scripts {
-    @* <script src="~/js/reflection.js" asp-append-version="true"></script> *@
+    <script src="~/js/reflection.js" asp-append-version="true"></script>
 }

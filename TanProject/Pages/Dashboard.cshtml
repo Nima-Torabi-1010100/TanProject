@@ -73,105 +73,29 @@
                         <img src="~/images/avatar.jpeg" data-i18n-attr="alt:dashboard.profileImageAlt">
                     </div>
                     <div class="profile-card__info d-flex flex-column align-center">
-                        <h2 class="profile-card__name">نیما</h2>
+                        <h2 class="profile-card__name"></h2>
                         <p class="profile-card__badge">
-                            <span class="accent">سومین</span>
+                            <span class="accent" id="user-day-count"></span>
                             <span data-i18n="dashboard.presenceText"></span>
                         </p>
                     </div>
                 </div>
                 <div class="profile-card__actions d-flex flex-column">
                     <button type="button" class="btn btn--outline" data-i18n="dashboard.editName"></button>
-                    <button type="button" class="btn btn--danger-outline" data-i18n="dashboard.deleteAllData"></button>
+                    <button type="button" class="btn btn--danger-outline" id="deleteAllDataBtn" data-i18n="dashboard.deleteAllData"></button>
                 </div>
             </aside>
             <section class="gallery-card d-flex flex-column align-center">
                 <h1 class="gallery-card__title" data-i18n="dashboard.galleryTitle"></h1>
                 <div class="gallery-card__grid d-flex justify-center">
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
-                    <article class="canvas-item d-flex flex-column align-center">
-                        <div class="canvas-item__img">
-                            <img src="./images/reflection/tension.jpeg" alt="">
-                        </div>
-                        <div class="canvas-item__wrapper d-flex justify-between">
-                            <span class="canvas-item__tag">تنش</span>
-                            <span class="canvas-item__date">۱۲ مرداد</span>
-                        </div>
-                    </article>
                 </div>
                 <p class="gallery-card__note" data-i18n="dashboard.privacyNote"></p>
             </section>
         </div>
     </div>
 </main>
+
+@section Scripts {
+    <script src="./js/tanDayCount.js"></script>
+    <script src="./js/dashboard.js"></script>
+}
