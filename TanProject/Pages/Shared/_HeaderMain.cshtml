@@ -90,7 +90,7 @@
                             <img src="/images/avatar.jpeg" alt="تصویر پروفایل">
                         </div>
                         <strong class="profile-dropdown__name">نیما</strong>
-                        <p class="profile-dropdown__badge"><span class="accent">سومین</span> حضور تو در تَن</p>
+                        <p class="profile-dropdown__badge"><span class="accent" id="user-day-count">سومین</span> حضور تو در تَن</p>
                         <button class="btn profile-dropdown__btn">بوم های ثبت شده من</button>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             <div class="menu-cover__actions d-flex align-center">
                 <nav class="menu-cover__links d-flex">
                     <a asp-page="Index" class="@(ViewData["ActivePage"] as string == "Index" ? "active" : "") menu-cover__link" data-i18n="header.navHome">خانه</a>
-                    <a asp-page="Dashboard" class="@(ViewData["ActivePage"] as string == "Dashboard" ? "active" : "") menu-cover__link" data-i18n="header.profileBtn">تَن من</a>
+                    <a asp-page="Dashboard" class="@(ViewData["ActivePage"] as string == "Dashboard" ? "active" : "") menu-cover__link is-hidden" data-i18n="header.profileBtn" id="profileNavBtn">تَن من</a>
                     <a asp-page="Welcome" class="@(ViewData["ActivePage"] as string == "Welcome" ? "active" : "") menu-cover__link" data-i18n="header.navStart">آغاز</a>
                     <a asp-page="About" class="@(ViewData["ActivePage"] as string == "About" ? "active" : "") menu-cover__link" data-i18n="header.navAbout">درباره تن</a>
                 </nav>

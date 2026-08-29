@@ -1,6 +1,6 @@
 const translations = {
     "fa": {
-        "page": {
+        "homePage": {
             "title": "تن | خانه"
         },
         "header": {
@@ -12,7 +12,8 @@ const translations = {
             "themeLight": "حالت روز",
             "themeDark": "حالت شب",
             "langTooltip": "انگلیسی",
-            "profileBtn": "تَن من"
+            "profileBtn": "تَن من",
+            "defaultUserName": "دوست من"
         },
         "hero": {
             "titlePart1": "به ",
@@ -114,7 +115,7 @@ const translations = {
         }
     },
     "en": {
-        "page": {
+        "homePage": {
             "title": "Tan | Home"
         },
         "header": {
@@ -126,7 +127,8 @@ const translations = {
             "themeLight": "Light Mode",
             "themeDark": "Dark Mode",
             "langTooltip": "Farsi",
-            "profileBtn": "My Tan"
+            "profileBtn": "My Tan",
+            "defaultUserName": "friend"
         },
         "hero": {
             "titlePart1": "Listen to your ",

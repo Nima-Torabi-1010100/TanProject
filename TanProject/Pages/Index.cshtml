@@ -1,8 +1,10 @@
 ﻿@page
+@inject Microsoft.Extensions.Localization.IStringLocalizer<TanProject.Pages.BodyMappingModel> Localizer
 @model TanProject.Pages.IndexModel
 @{
     ViewData["Title"] = "خانه";
     ViewData["ActivePage"] = "Index";
+    ViewData["TranslationKey"] = "homePage.title";
 }
 @section Decoration {
     <div class="decoration">
@@ -25,14 +27,12 @@
             <div class="col-7 col-tablet-12  col-mobile-12">
                 <div class="hero__content d-flex flex-column align-start">
                     <h1 class="hero__title">
-                        <span data-i18n="hero.titlePart1">به </span>
-                        <span class="accent" data-i18n="hero.titleAccent">بدنت</span>
-                        <span data-i18n="hero.titlePart2"> گوش بده!</span>
+                        <span data-i18n="hero.titlePart1">@Localizer["hero.titlePart1"]</span>
+                        <span class="accent" data-i18n="hero.titleAccent">@Localizer["hero.titleAccent"]</span>
+                        <span data-i18n="hero.titlePart2">@Localizer["hero.titlePart2"]</span>
                     </h1>
-                    <p class="hero__subtitle" data-i18n="hero.subtitle">
-                        مسیر آگاهی از احساساتت از اینجا شروع میشه!
-                    </p>
-                    <a asp-page="Welcome" class="btn hero__cta" data-i18n="hero.cta">آغاز</a>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle">@Localizer["hero.subtitle"]</p>
+                    <a asp-page="Welcome" class="btn hero__cta" data-i18n="hero.cta">@Localizer["hero.cta"]</a>
                 </div>
             </div>
             <div class="col-5 col-tablet-12  col-mobile-12">
@@ -43,3 +43,6 @@
         </div>
     </div>
 </main>
+@section Scripts {
+    <script src="./js/tanDayCount.js"></script>
+}

@@ -318,6 +318,10 @@ main {
     transition: color .2s ease;
 }
 
+    .menu-cover__link.is-hidden {
+        display: none;
+    }
+
     .nav__item:hover,
     .menu-cover__link:hover {
         color: var(--color-text-primary);
@@ -334,7 +338,12 @@ main {
 
 .profile-wrapper {
     position: relative;
+    display: none;
 }
+
+    .profile-wrapper.is-visible {
+        display: block;
+    }
 
 .profile-dropdown {
     font-size: 1.6rem;
@@ -2258,7 +2267,7 @@ main {
         display: flex;
     }
 
-    .profile-wrapper {
+    .profile-wrapper.is-visible {
         display: none;
     }
 

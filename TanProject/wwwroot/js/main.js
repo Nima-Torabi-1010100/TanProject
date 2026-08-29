@@ -1,6 +1,24 @@
-//==========
-//Theme
-//==========
+const STORAGE_KEYS = {
+    THEME: 'tan-theme',
+    LANG: 'preferred_lang',
+    USER_NAME: 'userName',
+    USER_AGE: 'userAge',
+    JOIN_DATE: 'tanJoinDate'
+};
+
+const INTRO_MESSAGES = [
+    "امروز قراره کمی به پیام‌های بدنت گوش بدیم.",
+    "هیچ فشاری نیست، فقط چند دقیقه همراه من باش.",
+    "وقتی آماده بودی، بریم سراغ تمرین تنفس."
+];
+
+const FEEDBACK_LABELS = [
+    'خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود'
+];
+
+let currentStep = 0;
+let currentMessageIndex = 0;
+
 (function () {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
 
@@ -8,6 +26,9 @@
 
     const darkIcon = document.querySelector('.dark-icon');
     const lightIcon = document.querySelector('.light-icon');
+    const savedName = localStorage.getItem(STORAGE_KEYS.USER_NAME);
+    const savedAge = localStorage.getItem(STORAGE_KEYS.USER_AGE);
+
 
     if (darkIcon && currentTheme === 'light') {
         darkIcon.classList.add('active');
@@ -18,21 +39,30 @@
         lightIcon.classList.add('active');
     }
 
+    const profileWrapper = document.querySelector('.profile-wrapper');
+    const profileNavLink = document.getElementById('profileNavBtn');
     const profileDropdownName = document.querySelector('.profile-dropdown__name');
     const userName = document.getElementById('user-name');
 
     if (profileDropdownName)
-        profileDropdownName.textContent = localStorage.getItem("userName") || 'دوست من ';
+        profileDropdownName.textContent = savedName || 'دوست من ';
     if (userName)
-        userName.textContent = localStorage.getItem("userName") || 'دوست من ';
+        userName.textContent = savedName || 'دوست من ';
+
+    if (savedName && savedAge) {
+        profileWrapper?.classList.add('is-visible');
+        profileNavLink?.classList.remove('is-hidden');
+    }
 })();
+
+function syncThemeUI(theme) { }
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
     html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('tan-theme', newTheme);
+    localStorage.setItem(STORAGE_KEYS.THEME, newTheme);
 
     const darkIcon = document.querySelector('.dark-icon');
     const lightIcon = document.querySelector('.light-icon');
@@ -47,6 +77,7 @@ function toggleTheme() {
 
     updateThemeTooltip();
 }
+
 function updateThemeTooltip() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const currentLang = document.documentElement.lang || 'fa';
@@ -183,16 +214,14 @@ updateSliderFill();
 //==========
 const feedbackRange = document.getElementById('feedback-range');
 const sliderStatus = document.getElementById('slider-status');
-const labels =
-    ['خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود'];
 
 function updateRange() {
     if (!feedbackRange) return;
 
     const val = parseInt(feedbackRange.value, 10);
-    const index = Math.min(Math.floor(val / 20), labels.length - 1);
+    const index = Math.min(Math.floor(val / 20), FEEDBACK_LABELS.length - 1);
 
-    sliderStatus.textContent = labels[index];
+    sliderStatus.textContent = FEEDBACK_LABELS[index];
     console.log(val);
     feedbackRange.style.setProperty('--fill', val + '%');
 }
@@ -215,7 +244,6 @@ document.querySelectorAll('.chat__suggestion-chip').forEach(chip => {
 // Steps / Sections
 //==========
 const sections = document.querySelectorAll('.step-section');
-let currentStep = 0;
 function goToNextSection() {
     if (currentStep < sections.length - 1) {
         sections[currentStep].classList.add('hidden');
@@ -227,7 +255,10 @@ function saveNameAndNext() {
     const nameInput = document.getElementById('username-input').value.trim();
 
     if (nameInput != "") {
-        localStorage.setItem('userName', nameInput);
+        localStorage.setItem(STORAGE_KEYS.USER_NAME, nameInput);
+        if (!localStorage.getItem(STORAGE_KEYS.JOIN_DATE)) {
+            localStorage.setItem(STORAGE_KEYS.JOIN_DATE, new Date().toISOString().split('T')[0]);
+        }
         initAgePicker();
         goToNextSection();
     }
@@ -237,41 +268,50 @@ function saveNameAndNext() {
 }
 function saveAgeAndNext() {
     if (typeof selectedAgeValue !== 'undefined') {
-        localStorage.setItem('userAge', selectedAgeValue);
+        localStorage.setItem(STORAGE_KEYS.USER_AGE, selectedAgeValue);
     }
-    const savedName = localStorage.getItem('userName') || 'دوست من ';
-    const nameSpan = document.getElementById('user-display-name');
-    if (nameSpan) {
-        nameSpan.textContent = savedName + '!';
-    }
-    document.querySelector(".card").classList.remove("card");
-    goToNextSection();
 
-    const nextBtn = document.querySelector('.next-btn');
-    if (nextBtn)
-        nextBtn.classList.remove('hidden');
+    const savedName = localStorage.getItem(STORAGE_KEYS.USER_NAME) || 'دوست من ';
+    document.querySelector('.card')?.classList.remove('card');
+
+    const nameSpan = document.getElementById('user-display-name');
+    if (nameSpan) nameSpan.textContent = `${savedName}!`;
+
+    document.querySelector('.next-btn')?.classList.remove('hidden');
+
+    goToNextSection();
 }
 
-const introMessages = [
-    "امروز قراره کمی به پیام‌های بدنت گوش بدیم.",
-    "هیچ فشاری نیست، فقط چند دقیقه همراه من باش.",
-    "وقتی آماده بودی، بریم سراغ تمرین تنفس."
-];
-let currentMessageIndex = 0;
+//==========
+// Returning user: skip name/age
+//==========
+(function skipWelcomeIfReturning() {
+    if (sections.length < 3) return;
+    const savedName = localStorage.getItem(STORAGE_KEYS.USER_NAME);
+    const savedAge = localStorage.getItem(STORAGE_KEYS.USER_AGE);
+
+    if (savedName && savedAge) {
+        sections[0].classList.add('hidden');
+        sections[1].classList.add('hidden');
+        sections[2].classList.remove('hidden');
+        currentStep = 2;
+
+        document.querySelector('.card')?.classList.remove('card');
+        const nameSpan = document.getElementById('user-display-name');
+        if (nameSpan) {
+            nameSpan.textContent = savedName + '!';
+        }
+        const nextBtn = document.querySelector('.next-btn');
+        if (nextBtn) nextBtn.classList.remove('hidden');
+    }
+})();
+
 function goToNextStep() {
     const dynamicTitle = document.querySelector('.dynamic-title__text');
     if (!dynamicTitle) return;
 
-    if (currentMessageIndex < introMessages.length) {
-
-        dynamicTitle.classList.remove('fade-in');
-
-        void dynamicTitle.offsetWidth;
-
-        dynamicTitle.textContent = introMessages[currentMessageIndex];
-
-        dynamicTitle.classList.add('fade-in');
-
+    if (currentMessageIndex < INTRO_MESSAGES.length) {
+        animateText(dynamicTitle, INTRO_MESSAGES[currentMessageIndex]);
         currentMessageIndex++;
     }
     else {
@@ -279,15 +319,16 @@ function goToNextStep() {
     }
 }
 
-const customAlert = document.getElementById('customAlert');
 
 function showAlert(message) {
+    const customAlert = document.getElementById('customAlert');
+    if (!customAlert) return;
     customAlert.querySelector('.custom-alert__message').textContent = message;
     customAlert.classList.add('active');
 }
 
 function closeAlert() {
-    customAlert.classList.remove('active');
+    document.getElementById('customAlert')?.classList.remove('active');
 }
 
 function animateText(element, text) {
