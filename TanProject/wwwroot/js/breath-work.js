@@ -13,20 +13,16 @@
 
     ballContainer.classList.add('idle');
 
-    const introSteps = [
-        { text: "با من همراه شو!", delay: 4000 },
-        { text: "قراره تنفس جعبه‌ای انجام بدیم", delay: 2500 },
-        { text: "هر مرحله ۴ ثانیه طول می‌کشه", delay: 3000 },
-        { text: "همراه با بزرگ شدنم، به‌آرامی نفس بکش", delay: 3000 },
-        { text: "نفس رو ۴ ثانیه نگه دار", delay: 3000 },
-        { text: "همراه با کوچک شدنم، به‌آرامی نفس رو بیرون بده", delay: 3000 },
-        { text: "۴ ثانیه مکث کن و دوباره تکرار کن", delay: 3000 },
-        { text: "آماده‌ای؟ بریم...", delay: 2500 }
-    ];
+    const introDelays = [4000, 2500, 3000, 3000, 3000, 3000, 3000, 2500];
+    function getIntroSteps() {
+        const texts = getTranslations('breathwork').steps;
+        return texts.map((text, i) => ({ text, delay: introDelays[i] }));
+    }
 
     let introIndex = 0;
 
     function runIntro() {
+        const introSteps = getIntroSteps();
         if (introIndex < introSteps.length) {
             animateText(guideText, introSteps[introIndex].text);
             timerTimeout = setTimeout(() => {
@@ -60,23 +56,24 @@
             }
             return String(n);
         };
+        const t = getTranslations('breathwork');
         counterText.textContent = `${formatDigits(maxCycles)} / ${formatDigits(cycleCount)}`;
 
-        guideText.textContent = "به آرامی نفس بکش...";
+        guideText.textContent = t.inhale;
         ball.style.transform = "scale(1)";
 
         timerTimeout = setTimeout(() => {
 
-            guideText.textContent = "نفس را نگه دار...";
+            guideText.textContent = t.hold;
 
             timerTimeout = setTimeout(() => {
 
-                guideText.textContent = "آرام نفس را بیرون بده...";
+                guideText.textContent = t.exhale;
                 ball.style.transform = "scale(0.82)";
 
                 timerTimeout = setTimeout(() => {
 
-                    guideText.textContent = "لحظه‌ای مکث کن...";
+                    guideText.textContent = t.pause;
 
                     timerTimeout = setTimeout(() => {
                         cycleCount++;
@@ -92,13 +89,14 @@
 
     function finishBreathing() {
         isRunning = false;
-        guideText.textContent = "پایان تمرین. عالی بود!";
+        const t = getTranslations('breathwork');
+        guideText.textContent = t.finished;
         ball.style.transform = "scale(0.82)";
         ballContainer.classList.add('idle');
 
 
         if (skipBtn) {
-            skipBtn.textContent = "ورود به گام بعدی";
+            skipBtn.textContent = t.nextStepBtn;
             skipBtn.onclick = () => window.location.href = '/BodyMapping';
         }
     }
@@ -113,7 +111,7 @@
         ballContainer.classList.remove('idle');
         requestAnimationFrame(() => {
             ballContainer.classList.add('idle');
-            skipBtn.textContent = "عبور از تمرین";
+            skipBtn.textContent = getTranslations('breathwork').skipBtn;
             runIntro();
         });
     });
@@ -121,6 +119,7 @@
 
     if (skipBtn) {
         skipBtn.addEventListener('click', () => {
+            const introSteps = getIntroSteps();
             if (isRunning || introIndex < introSteps.length) {
                 window.location.href = '/BodyMapping';
             }

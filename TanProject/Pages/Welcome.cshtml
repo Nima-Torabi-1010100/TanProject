@@ -19,8 +19,8 @@
         <div class="card">
             <section class="step-section">
                 <h1 class="card__title text-center">
-                    <span data-i18n="welcomePage.greetingTitlePart1">سلام!</span><br>
-                    <span data-i18n="welcomePage.greetingTitlePart2">امکانش هست اسمت رو بهم بگی؟</span>
+                    <span data-i18n="welcomePage.greetingTitlePart1"></span><br>
+                    <span data-i18n="welcomePage.greetingTitlePart2"></span>
                 </h1>
                 <div class="card__wrapper d-flex">
                     <input class="card__input" type="text" id="username-input" data-i18n-attr="placeholder:welcomePage.nameInputPlaceholder"
@@ -37,8 +37,8 @@
             </section>
             <section class="step-section hidden">
                 <h1 class="card__title text-center">
-                    <span data-i18n="welcomePage.ageQuestionTitle1">برای اینکه بتونم بیشتر همراهیت کنم،</span>
-                    <span data-i18n="welcomePage.ageQuestionTitle2">میشه بگی چند سالته؟</span>
+                    <span data-i18n="welcomePage.ageQuestionTitle1"></span>
+                    <span data-i18n="welcomePage.ageQuestionTitle2"></span>
                 </h1>
                 <div class="age-picker__wrapper">
                     <div class="age-picker">
@@ -46,12 +46,15 @@
                     </div>
                     <button asp-page="" class="btn btn--tertiary" data-i18n="welcomePage.continueBtn" data-i18n-attr="aria-label:welcomePage.submitAgeAlt" aria-label="Submit" onclick="saveAgeAndNext()">ادامه</button>
                 </div>
-                <p class="result">سن انتخاب‌شده: <b id="result">۱۵</b></p>
+                <p class="result"><span data-i18n="welcomePage.selectedAgeText"></span><b id="result">۱۵</b></p>
             </section>
         </div>
         <section class="step-section hidden text-center">
             <div class="dynamic-title">
-                <h1 class="dynamic-title__text fade-in">خیلی خوش اومدی <span class="accent" id="user-display-name">دوست من!</span></h1>
+                <h1 class="dynamic-title__text fade-in">
+                    <span data-i18n="breathIntro.welcome"></span>
+                    <span class="accent" id="user-display-name">دوست من!</span>
+                </h1>
             </div>
         </section>
     </div>

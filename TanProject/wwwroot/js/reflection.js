@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const image = document.querySelector('.reflection__img');
     const narrativeWrapper = document.querySelector('.reflection__narrative-wrapper');
-    debugger;
+
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
         hideLoadingState(image, narrativeWrapper);
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 'Content-Type': 'application/json',
                 'RequestVerificationToken': getAntiForgeryToken()
             },
-            body: JSON.stringify({ messages: history, bodyArea })
+            body: JSON.stringify({ messages: history, lang: getCurrentLang(), bodyArea })
         });
 
         if (!response.ok) {

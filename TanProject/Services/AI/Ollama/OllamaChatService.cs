@@ -13,8 +13,14 @@ namespace TanProject.Services.AI.Ollama
             _options = options;
         }
 
-        public async Task<ChatReplyResult> CompleteAsync(string systemPrompt, IReadOnlyList<ChatTurn> conversationHistory, CancellationToken ct = default)
+        public async Task<ChatReplyResult> CompleteAsync(string systemPrompt, IReadOnlyList<ChatTurn> conversationHistory, string lang, CancellationToken ct = default)
         {
+            var languageInstruction = lang == "en"
+                ? "Respond only in English."
+                : "همیشه فقط به زبان فارسی پاسخ بده.";
+
+            systemPrompt = $"{systemPrompt}\n\n{languageInstruction}";
+
             var messages = new List<object>
             {
                 new { role = "system", content = systemPrompt }
@@ -50,11 +56,16 @@ namespace TanProject.Services.AI.Ollama
             }
         }
 
-        public async Task<ChatReplyResult> GetReplyAsync(IReadOnlyList<ChatTurn> conversationHistory, CancellationToken ct = default)
+        public async Task<ChatReplyResult> GetReplyAsync(IReadOnlyList<ChatTurn> conversationHistory, string lang, CancellationToken ct = default)
         {
+            var languageInstruction = lang == "en"
+                ? "Respond only in English, regardless of the language used elsewhere."
+                : "همیشه فقط به زبان فارسی پاسخ بده.";
+
+            var systemPrompt = $"{_options.SystemPrompt}\n\n{languageInstruction}";
             var messages = new List<object>
             {
-                new { role = "system", content = _options.SystemPrompt}
+                new { role = "system", content = systemPrompt}
             };
             messages.AddRange(conversationHistory.Select(m => new
             {

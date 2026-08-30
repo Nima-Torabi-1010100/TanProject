@@ -4,25 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cached)
         localStorage.removeItem(CACHE_KEY);
 
-    const partLabels = {
-        'head': 'سر',
-        'neck': 'گردن',
-        'chest': 'قفسه سینه',
-        'left-arm': 'دست چپ',
-        'right-arm': 'دست راست',
-        'left-thigh': 'ران چپ',
-        'right-thigh': 'ران راست',
-        'left-shin': 'ساق چپ',
-        'right-shin': 'ساق راست',
-        'left-hand': 'کف دست چپ',
-        'right-hand': 'کف دست راست',
-        'left-foot': 'پا چپ',
-        'right-foot': 'پا راست',
-        'left-shoulder': 'شونه چپ',
-        'right-shoulder': 'شونه راست'
-    };
-    const PLACEHOLDER_TEXT = 'یک بخش از بدن را انتخاب کن';
-
     const instruction = document.querySelector('[data-i18n="bodyMapping.instruction1"]');
     const panel = document.querySelector('.sensation-panel');
     const panelTitle = document.getElementById('sensation-panel__title');
@@ -71,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             part.classList.add('body-part--selected');
 
             currentSelection.partId = partKey;
-            currentSelection.partName = partLabels[partKey] || partKey;
+            currentSelection.partName = getTranslations('bodyMapping').bodyParts[partKey] || partKey;
             showSelectedPartTitle(currentSelection.partName);
 
             setStep(1);
@@ -91,11 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
             setStep(2);
         });
     });
+    function getPartLabel(partId) {
+        const lang = getCurrentLang();
+        return translations[lang].bodyMapping.bodyParts[partId] || partId;
+    }
     function updateNavButtons(stepNumber) {
         if (!nextBtn || !prevBtn) return;
         nextBtn.classList.toggle('is-visible', stepNumber === 1);
         prevBtn.classList.toggle('is-visible', stepNumber === 2);
-        paginationTitle?.style.setProperty('--before-content', stepNumber === 1 ? '"نواحی ثبت شده"' : '""');
+        const recorded = getTranslations('bodyMapping').recordedAreas;
+        paginationTitle?.style.setProperty('--before-content', stepNumber === 1 ? `"${recorded}"` : '""');
     }
     function updateActionButtons() {
         if (!editBtn || !removeBtn || !submitBtn) return;
@@ -113,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showAlert('لطفاً ابتدا نوع حس را انتخاب کنید.');
             return;
         }
-        const currentLanguage = document.documentElement.lang || 'fa';
+        const currentLanguage = getCurrentLang();
 
         animateText(instruction,
             stepNumber === 1
@@ -221,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showPlaceholderTitle() {
         if (questionPrefix) questionPrefix.style.display = 'none';
         if (questionSuffix) questionSuffix.style.display = 'none';
-        if (panelTitle) panelTitle.textContent = PLACEHOLDER_TEXT;
+        if (panelTitle) panelTitle.textContent = getTranslations('bodyMapping').placeholder;
     }
     function showSelectedPartTitle(partName) {
         if (questionPrefix) questionPrefix.style.display = '';
@@ -233,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const hasEntry = i < sensationsList.length;
             dot.classList.toggle('sensation-panel__dot--active', i < sensationsList.length);
             dot.classList.toggle('sensation-panel__dot--editing', i === editingIndex);
-            //dot.disabled = !hasEntry;
         });
     }
     function loadEntryIntoPanel(index) {

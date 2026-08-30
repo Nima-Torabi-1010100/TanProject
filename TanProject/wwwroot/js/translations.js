@@ -9,11 +9,14 @@ const translations = {
             "navHome": "خانه",
             "navStart": "آغاز",
             "navAbout": "درباره تَن",
+            "navStartAgain": "شروع دوباره",
+            "navExit": "خروج",
             "themeLight": "حالت روز",
             "themeDark": "حالت شب",
             "langTooltip": "انگلیسی",
             "profileBtn": "تَن من",
-            "defaultUserName": "دوست من"
+            "defaultUserName": "دوست من",
+            "presenceText": "حضور تو در تَن"
         },
         "hero": {
             "titlePart1": "به ",
@@ -39,6 +42,7 @@ const translations = {
         },
         "welcomePage": {
             "title": "تن | گام اول",
+            "stepText": "گام اول: آرامش اولیه",
             "restartNav": "شروع دوباره",
             "exitNav": "خروج",
             "closeMenuAlt": "بستن منو",
@@ -46,21 +50,50 @@ const translations = {
             "greetingTitlePart2": "امکانش هست اسمت رو بهم بگی؟",
             "nameInputPlaceholder": "نام یا نام مستعار شما...",
             "submitBtnAlt": "ثبت نام",
-            "stepText": "گام اول: آرامش اولیه",
             "ageQuestionTitle1": "برای اینکه بتونم بیشتر همراهیت کنم،",
             "ageQuestionTitle2": "میشه بگی چند سالته؟",
             "continueBtn": "ادامه",
             "submitAgeAlt": "ثبت سن",
-            "selectedAgeText": "سن انتخاب‌شده:"
+            "selectedAgeText": "سن انتخاب‌شده: "
+        },
+        "breathIntro": {
+            "welcome": "خیلی خوش اومدی ",
+            "messages": [
+                "امروز قراره کمی به پیام‌های بدنت گوش بدیم.",
+                "هیچ فشاری نیست، فقط چند دقیقه همراه من باش.",
+                "وقتی آماده بودی، بریم سراغ تمرین تنفس."
+            ]
+        },
+        "breathwork": {
+            "stepCounter": "۴ / ۱",
+            "tooltip": "از اول شروع کن ",
+            "steps": [
+                "با من همراه شو!",
+                "قراره تنفس جعبه‌ای انجام بدیم",
+                "هر مرحله ۴ ثانیه طول می‌کشه",
+                "همراه با بزرگ شدنم، به‌آرامی نفس بکش",
+                "نفس رو ۴ ثانیه نگه دار",
+                "همراه با کوچک شدنم، به‌آرامی نفس رو بیرون بده",
+                "۴ ثانیه مکث کن و دوباره تکرار کن",
+                "آماده‌ای؟ بریم..."
+            ],
+            "inhale": "به آرامی نفس بکش...",
+            "hold": "نفس را نگه دار...",
+            "exhale": "آرام نفس را بیرون بده...",
+            "pause": "لحظه‌ای مکث کن...",
+            "finished": "پایان تمرین. عالی بود!",
+            "skipBtn": "عبور از تمرین",
+            "nextStepBtn": "ورود به گام بعدی"
         },
         "bodyMapping": {
             "title": "تن | گام دوم",
+            "stepText": "گام دوم: شناسایی حس‌های بدن",
             "instruction1": "ناحیه‌ای از بدنت که بیشتر حسش میکنی را لمس کن",
             "instruction2": "توصیف کن این حس چه جوریه",
             "questionPrefix": "در ناحیه",
             "questionSuffix": "چه حسی داری؟",
             "placeholder": "یک بخش از بدن را انتخاب کن",
-
+            "recordedAreas": "نواحی ثبت شده",
             "sensations": {
                 "cold": "سرما",
                 "heat": "گرما",
@@ -92,23 +125,30 @@ const translations = {
                 "calm": "آرام"
             },
             "bodyParts": {
-                "hand": "دست",
-                "chest": "سینه",
-                "head": "سر",
-                "rightShoulder": "شانه راست",
-                "leftShoulder": "شانه چپ",
-                "rightArm": "بازوی راست",
-                "leftArm": "بازوی چپ",
-                "rightThigh": "ران راست",
-                "leftThigh": "ران چپ",
-                "rightShin": "ساق راست",
-                "leftShin": "ساق چپ"
+                "left-arm": "دست چپ",
+                "right-arm": "دست راست",
+                "left-shoulder": "شونه چپ",
+                "right-shoulder": "شونه راست",
+                "left-thigh": "ران چپ",
+                "right-thigh": "ران راست",
+                "left-shin": "ساق چپ",
+                "right-shin": "ساق راست",
+                "left-hand": "کف دست چپ",
+                "right-hand": "کف دست راست",
+                "left-foot": "پا چپ",
+                "right-foot": "پا راست",
+                "chest": "قفسه سینه",
+                "neck": "گردن",
+                "head": "سر"
             }
         },
         "chat": {
             "title": "تن | گام سوم",
+            "stepText": "گام سوم: گفت‌وگوی تن‌آگاه",
             "headerTitle": "گفت‌وگوی ",
             "headerAccent": "تن‌آگاه",
+            "startingMessage1": "سلام ",
+            "startingMessage2": "کمی صبور باش اطلاعاتت رو بررسی کنم و گفت‌وگو رو آغاز بکنیم",
             "inputPlaceholder": "توصیف کن...",
             "sendButtonLabel": "ارسال پیام",
             "finishConversation": "اتمام گفت‌وگو"
@@ -134,6 +174,16 @@ const translations = {
             "deleteAllData": "حذف تمامی اطلاعات",
             "galleryTitle": "بوم‌های ثبت شده من",
             "privacyNote": "روایت‌های بدنی شما فقط روی مرورگر خودتان ذخیره می‌شوند و بدون اجازه شما در اختیار دیگران قرار نمی‌گیرند."
+        },
+        "emotionLabels": {
+            "Grief": "اندوه",
+            "Anxiety": "اضطراب",
+            "Anger": "خشم",
+            "Tension": "تنش",
+            "Numbness": "بی‌حسی",
+            "Coldness": "سرما",
+            "Relief": "رهایی",
+            "Calm": "آرامش"
         }
     },
     "en": {
@@ -146,11 +196,14 @@ const translations = {
             "navHome": "Home",
             "navStart": "Start",
             "navAbout": "About Tan",
+            "navStartAgain": "Start Again",
+            "navExit": "Exit",
             "themeLight": "Light Mode",
             "themeDark": "Dark Mode",
             "langTooltip": "Farsi",
             "profileBtn": "My Tan",
-            "defaultUserName": "friend"
+            "defaultUserName": "friend",
+            "presenceText": "time you've been with Tan"
         },
         "hero": {
             "titlePart1": "Listen to your ",
@@ -176,6 +229,7 @@ const translations = {
         },
         "welcomePage": {
             "title": "Tan | Step 1",
+            "stepText": "Step 1: Initial Calm",
             "restartNav": "Restart",
             "exitNav": "Exit",
             "closeMenuAlt": "Close Menu",
@@ -183,20 +237,50 @@ const translations = {
             "greetingTitlePart2": "Could you tell me your name?",
             "nameInputPlaceholder": "Your name or nickname...",
             "submitBtnAlt": "Submit",
-            "stepText": "Step 1: Initial Calm",
             "ageQuestionTitle1": "To support you better,",
             "ageQuestionTitle2": "could you tell me how old you are?",
             "continueBtn": "Continue",
             "submitAgeAlt": "Submit age",
-            "selectedAgeText": "Selected age:"
+            "selectedAgeText": "Selected age: "
+        },
+        "breathIntro": {
+            "welcome": "Welcome, ",
+            "messages": [
+                "Today, let's listen to your body's messages for a bit.",
+                "No pressure, just stay with me for a few minutes.",
+                "When you're ready, let's move on to the breathing exercise."
+            ]
+        },
+        "breathwork": {
+            "stepCounter": "4 / 1",
+            "tooltip": "Start Over",
+            "steps": [
+                "Come along with me!",
+                "We're going to do box breathing",
+                "Each phase lasts 4 seconds",
+                "As I grow, breathe in slowly",
+                "Hold your breath for 4 seconds",
+                "As I shrink, breathe out slowly",
+                "Pause for 4 seconds and repeat",
+                "Ready? Let's go..."
+            ],
+            "inhale": "Breathe in slowly...",
+            "hold": "Hold your breath...",
+            "exhale": "Breathe out gently...",
+            "pause": "Pause for a moment...",
+            "finished": "Exercise complete. Well done!",
+            "skipBtn": "Skip",
+            "nextStepBtn": "Go to Next Step"
         },
         "bodyMapping": {
             "title": "Tan | Step 2",
+            "stepText": "Step 2: Identifying Body Sensations",
             "instruction1": "Touch the area of your body where you feel the most sensation",
             "instruction2": "Define how this feeling feels",
             "questionPrefix": "What do you feel in your",
             "questionSuffix": "?",
             "placeholder": "Select a part of your body",
+            "recordedAreas": "Recorded Areas",
             "sensations": {
                 "cold": "Cold",
                 "heat": "Heat",
@@ -228,23 +312,30 @@ const translations = {
                 "calm": "Calm"
             },
             "bodyParts": {
-                "hand": "hand",
+                "left-arm": "left arm",
+                "right-arm": "right arm",
+                "left-shoulder": "left shoulder",
+                "right-shoulder": "right shoulder",
+                "left-thigh": "left thigh",
+                "right-thigh": "right thigh",
+                "left-shin": "left shin",
+                "right-shin": "right shin",
+                "left-hand": "left hand",
+                "right-hand": "right hand",
+                "left-foot": "left foot",
+                "right-foot": "right foot",
                 "chest": "chest",
-                "head": "head",
-                "rightShoulder": "right shoulder",
-                "leftShoulder": "left shoulder",
-                "rightArm": "right arm",
-                "leftArm": "left arm",
-                "rightThigh": "right thigh",
-                "leftThigh": "left thigh",
-                "rightShin": "right shin",
-                "leftShin": "left shin"
+                "neck": "neck",
+                "head": "head"
             }
         },
         "chat": {
             "title": "Tan | Step 3",
+            "stepText": "Step 3: Body-Aware Conversation",
             "headerTitle": "Body-aware ",
             "headerAccent": "Conversation",
+            "startingMessage1": "Hello ",
+            "startingMessage2": "Just a moment while I review your information and get our conversation started",
             "inputPlaceholder": "Describe it...",
             "sendButtonLabel": "Send message",
             "finishConversation": "Finish Conversation"
@@ -270,6 +361,16 @@ const translations = {
             "deleteAllData": "Delete All Data",
             "galleryTitle": "My Saved Canvases",
             "privacyNote": "Your body narratives are stored only on your browser and are never shared with others without your permission."
+        },
+        "emotionLabels": {
+            "Grief": "Grief",
+            "Anxiety": "Anxiety",
+            "Anger": "Anger",
+            "Tension": "Tension",
+            "Numbness": "Numbness",
+            "Coldness": "Coldness",
+            "Relief": "Relief",
+            "Calm": "Calm"
         }
     }
 }

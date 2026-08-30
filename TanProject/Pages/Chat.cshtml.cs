@@ -33,7 +33,7 @@ namespace TanProject.Pages
                     m.Content))
                 .ToList();
 
-            var result = await _chatAiService.GetReplyAsync(history, cancellationToken);
+            var result = await _chatAiService.GetReplyAsync(history, request.Lang, cancellationToken);
 
             if (!result.Success)
                 return StatusCode(502, new { reply = UIMessages.ModelUnavailableMessage });
@@ -48,7 +48,7 @@ namespace TanProject.Pages
             var seedText = TanSeedPromptBuilder.Build(request);
             var history = new List<ChatTurn> { new ChatTurn(ChatRole.User, seedText) };
 
-            var result = await _chatAiService.GetReplyAsync(history, cancellationToken);
+            var result = await _chatAiService.GetReplyAsync(history, request.Lang, cancellationToken);
 
             if (!result.Success)
                 return StatusCode(502, new { reply = UIMessages.ModelUnavailableMessage });

@@ -14,9 +14,9 @@ namespace TanProject.Services.AI
         }
 
         public async Task<EmotionClassificationResult?> ClassifyEmotionAsync(
-            IReadOnlyList<ChatTurn> conversationHistory, CancellationToken ct = default)
+            IReadOnlyList<ChatTurn> conversationHistory, string lang, CancellationToken ct = default)
         {
-            var result = await _aiService.CompleteAsync(TanSystemPrompt.EmotionClassification, conversationHistory, ct: ct);
+            var result = await _aiService.CompleteAsync(TanSystemPrompt.EmotionClassification, conversationHistory, lang, ct: ct);
             if (!result.Success) return null;
 
             try
@@ -41,15 +41,17 @@ namespace TanProject.Services.AI
         }
 
         public async Task<string> GenerateReflectionAsync(
-            string emotion, string bodyArea, IReadOnlyList<ChatTurn> conversationHistory, CancellationToken ct = default)
+            string emotion, string bodyArea, IReadOnlyList<ChatTurn> conversationHistory, string lang, CancellationToken ct = default)
         {
+            var languageName = lang == "en" ? "English" : "فارسی";
             var imageDescription = TanImageDescription.ByEmotion.GetValueOrDefault(emotion, TanImageDescription.ByEmotion["Calm"]);
             var prompt = TanSystemPrompt.ReflectionTemplate
                 .Replace("{{emotion}}", emotion)
                 .Replace("{{body_area}}", bodyArea)
-                .Replace("{{image_description}}", imageDescription);
+                .Replace("{{image_description}}", imageDescription)
+                .Replace("{{language}}", languageName);
 
-            var result = await _aiService.CompleteAsync(prompt, conversationHistory, ct: ct);
+            var result = await _aiService.CompleteAsync(prompt, conversationHistory, lang, ct: ct);
             return result.Success ? result.Text : string.Empty;
         }
 

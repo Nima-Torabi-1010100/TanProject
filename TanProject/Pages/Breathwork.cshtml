@@ -26,18 +26,18 @@
                     justify-center" aria-label="شروع مجدد">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                         <path d="M5.25003 2.06251C2.6853 3.52589 1 6.33585 1 9.50006C1 14.1945 4.80561 18.0001 9.50006 18.0001C14.1945 18.0001 18.0001 14.1945 18.0001 9.50006C18.0001 4.80561 14.1945 1 9.50006 1"
-                              stroke="#706993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M5.25003 6.31253V2.0625H1" stroke="#706993" stroke-width="2" stroke-linecap="round"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5.25003 6.31253V2.0625H1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                               stroke-linejoin="round" />
                     </svg>
                 </button>
-                <div class="tooltip">از اول شروع کن</div>
-                <span class="breathwork__counter d-flex align-center justify-center">۴ / ۱</span>
+                <div class="tooltip" data-i18n="breathwork.tooltip"></div>
+                <span class="breathwork__counter d-flex align-center justify-center" data-i18n="breathwork.stepCounter"></span>
             </div>
             <div class="breathwork__guide">
                 <h2 class="fade-in text-center"></h2>
             </div>
-            <button class="btn btn--primary m-top-4">عبور از تمرین</button>
+            <button class="btn btn--primary m-top-4" data-i18n="breathwork.skipBtn"></button>
         </div>
     </div>
 </main>
@@ -57,7 +57,7 @@
                 <span class="dot"></span>
             </div>
         </div>
-        <span class="footer__text" data-i18n="welcomePage.stepText">گام اول: آرامش اولیه</span>
+        <span class="footer__text" data-i18n="welcomePage.stepText"></span>
     </footer>
 }
 @section Scripts {

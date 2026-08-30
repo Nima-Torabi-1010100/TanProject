@@ -58,8 +58,8 @@ function getOrdinal(num, lang) {
     return lang === 'fa' ? toPersianOrdinal(num) : toEnglishOrdinal(num);
 }
 (function renderTanDayCountBadge() {
-    const userDayCount = document.getElementById('user-day-count');
-    if (!userDayCount && !localStorage.getItem('userName')) return;
-    const lang = document.documentElement.lang || 'fa';
-    userDayCount.textContent = getOrdinal(getTanDayCount(), lang);
+    const userDayCounts = document.querySelectorAll('.user-day-count');
+    if (!userDayCounts && !localStorage.getItem('userName')) return;
+    const lang = getCurrentLang();
+    userDayCounts.forEach(el => { el.textContent = getOrdinal(getTanDayCount(), lang); });
 })();

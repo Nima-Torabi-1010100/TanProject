@@ -57,7 +57,7 @@
                             <path d="M0.75 0.75L6.75 6.75L12.75 0.75" stroke="white" stroke-width="1.5"
                                   stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span data-i18n="header.profileBtn">تَن من</span>
+                        <span data-i18n="header.profileBtn"></span>
                     </button>
                     <div class="profile-dropdown d-flex flex-column align-center">
                         <div class="profile-dropdown__decoration">
@@ -90,7 +90,10 @@
                             <img src="/images/avatar.jpeg" alt="تصویر پروفایل">
                         </div>
                         <strong class="profile-dropdown__name"></strong>
-                        <p class="profile-dropdown__badge"><span class="accent" id="user-day-count">سومین</span> حضور تو در تَن</p>
+                        <p class="profile-dropdown__badge">
+                            <span class="accent user-day-count"></span>
+                            <span data-i18n="header.presenceText"></span>
+                        </p>
                         <a asp-page="/Dashboard" class="btn profile-dropdown__btn">بوم های ثبت شده من</a>
                     </div>
                 </div>

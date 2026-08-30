@@ -27,6 +27,7 @@
         }
         const bubble = document.createElement('div');
         bubble.className = 'chat__bubble' + (role === 'user' ? ' chat__bubble--user' : '');
+        if (getCurrentLang() === 'en') bubble.dir = 'ltr';
         bubble.textContent = text;
         wrapper.appendChild(bubble);
         chatMessages.appendChild(wrapper);
@@ -54,7 +55,8 @@
         return {
             userName: localStorage.getItem('userName') || '',
             userAge: localStorage.getItem('userAge') || '',
-            sensationsList
+            sensationsList,
+            lang: getCurrentLang()
         };
     }
 
@@ -105,7 +107,7 @@
         setLoading(true);
 
         try {
-            const { ok, data } = await postJson('SendMessage', { messages: history });
+            const { ok, data } = await postJson('SendMessage', { messages: history, lang: getCurrentLang() });
             setLoading(false);
 
             if (!ok) {
@@ -128,7 +130,7 @@
         sendMessage(chatInput.value);
     });
 
-    finishBtn.addEventListener('click', () => {
+    finishBtn?.addEventListener('click', () => {
         window.location.href = '/Reflection';
     })
 

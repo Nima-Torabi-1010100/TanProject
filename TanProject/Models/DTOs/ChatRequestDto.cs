@@ -3,5 +3,6 @@
     public class ChatRequestDto
     {
         public List<ChatMessageDto> Messages { get; set; } = new();
+        public string Lang { get; set; }
     }
 }

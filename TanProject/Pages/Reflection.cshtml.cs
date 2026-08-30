@@ -28,10 +28,10 @@ namespace TanProject.Pages
                     m.Role == "assistant" ? ChatRole.Assistant : ChatRole.User,
                     m.Content)).ToList();
 
-            var classification = await _aiService.ClassifyEmotionAsync(history, ct);
+            var classification = await _aiService.ClassifyEmotionAsync(history, request.Lang, ct);
             var emotion = classification?.Emotion ?? "Calm";
 
-            var reflectionText = await _aiService.GenerateReflectionAsync(emotion, request.BodyArea, history, ct);
+            var reflectionText = await _aiService.GenerateReflectionAsync(emotion, request.BodyArea, history, request.Lang, ct);
 
             if (string.IsNullOrWhiteSpace(reflectionText))
                 return StatusCode(502, new { error = "متن بازتاب تولید نشد." });

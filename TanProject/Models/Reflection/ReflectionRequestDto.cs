@@ -6,5 +6,6 @@ namespace TanProject.Models.Reflection
     {
         public List<ChatMessageDto> Messages { get; set; } = new();
         public string BodyArea { get; set; } = "";
+        public string Lang { get; set; }
     }
 }

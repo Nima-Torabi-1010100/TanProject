@@ -5,9 +5,15 @@
 
     renderGallery(history);
 });
+function getEmotionLabel(tag) {
+    if (getCurrentLang() === 'fa') {
+        return getTranslations("emotionLabels")[tag] || tag;
+    }
+    return tag;
+}
 function renderGallery(history) {
     const gallery = document.querySelector('.gallery-card__grid');
-    
+
     gallery.innerHTML = '';
 
     history.forEach(reflection => {
@@ -21,7 +27,8 @@ function renderGallery(history) {
         </div>
 
         <div class="canvas-item__wrapper d-flex justify-between">
-            <span class="canvas-item__tag">${reflection.tag}</span>
+            <span class="canvas-item__tag">${getEmotionLabel(reflection.tag)
+            }</span >
             <span class="canvas-item__date">${reflection.date}</span>
         </div>
         `;

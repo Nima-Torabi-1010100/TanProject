@@ -1,17 +1,3 @@
-const STORAGE_KEYS = {
-    THEME: 'tan-theme',
-    LANG: 'preferred_lang',
-    USER_NAME: 'userName',
-    USER_AGE: 'userAge',
-    JOIN_DATE: 'tanJoinDate'
-};
-
-const INTRO_MESSAGES = [
-    "امروز قراره کمی به پیام‌های بدنت گوش بدیم.",
-    "هیچ فشاری نیست، فقط چند دقیقه همراه من باش.",
-    "وقتی آماده بودی، بریم سراغ تمرین تنفس."
-];
-
 const FEEDBACK_LABELS = [
     'خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود'
 ];
@@ -56,8 +42,15 @@ let currentMessageIndex = 0;
         profileWrapper?.classList.add('is-visible');
         profileNavLink?.classList.remove('is-hidden');
     }
-})();
 
+})();
+function getCurrentLang() {
+    return document.documentElement.lang || 'fa';
+}
+function getTranslations(section) {
+    const lang = getCurrentLang();
+    return translations[lang][section];
+}
 function syncThemeUI(theme) { }
 function toggleTheme() {
     const html = document.documentElement;
@@ -83,7 +76,7 @@ function toggleTheme() {
 
 function updateThemeTooltip() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    const currentLang = document.documentElement.lang || 'fa';
+    const currentLang = getCurrentLang();
     const tooltipEl = document.getElementById('dark-mode-btn__tooltip');
 
     if (!tooltipEl || !translations[currentLang]) return;
@@ -196,7 +189,7 @@ function updateSliderFill(slider) {
     if (!slider) return;
     const percent = slider.value;
     slider.style.background =
-        `linear-gradient(to right, #2e2031 ${percent}%, #e2e0e8 ${percent}%)`;
+        `linear-gradient(to right, var(--color-ink) ${percent}%, #d1d1d1 ${percent}%)`;
 }
 if (valenceSlider) {
     updateSliderFill(valenceSlider);
@@ -305,7 +298,11 @@ function saveAgeAndNext() {
             nameSpan.textContent = savedName + '!';
         }
         const nextBtn = document.querySelector('.next-btn');
-        if (nextBtn) nextBtn.classList.remove('hidden');
+        if (nextBtn) {
+            nextBtn.classList.remove('hidden');
+            if (getCurrentLang() === 'en')
+                nextBtn.classList.add('btn--english');
+        };
     }
 })();
 
@@ -313,8 +310,9 @@ function goToNextStep() {
     const dynamicTitle = document.querySelector('.dynamic-title__text');
     if (!dynamicTitle) return;
 
-    if (currentMessageIndex < INTRO_MESSAGES.length) {
-        animateText(dynamicTitle, INTRO_MESSAGES[currentMessageIndex]);
+    const introMessages = getTranslations('breathIntro').messages;
+    if (currentMessageIndex < introMessages.length) {
+        animateText(dynamicTitle, introMessages[currentMessageIndex]);
         currentMessageIndex++;
     }
     else {

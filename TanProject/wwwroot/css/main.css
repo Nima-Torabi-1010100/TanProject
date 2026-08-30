@@ -115,7 +115,11 @@ a {
     color: var(--color-text-primary);
 }
 
-.header,
+.header {
+    position: relative;
+    z-index: 100;
+}
+
 main {
     position: relative;
     z-index: 1;
@@ -779,7 +783,7 @@ main {
     display: block;
     width: 100%;
     max-width: 57rem;
-    background-color: #fff;
+    background-color: var(--color-neutral);
     border: var(--card-border-width) solid rgb(202, 202, 202);
     box-shadow: var(--box-shadow-primary);
     border-radius: 4.5rem;
@@ -809,7 +813,7 @@ main {
     width: 100%;
     border: 0.1rem solid var(--color-primary);
     border-radius: var(--radius-pill);
-    padding: 1.6rem 2rem;
+    padding: 1.6rem 2rem 1.6rem 6rem;
     outline: none;
     caret-color: var(--color-secondary);
 }
@@ -881,6 +885,10 @@ main {
         pointer-events: auto;
     }
 
+.btn--english {
+    transform: scaleX(-1) !important;
+}
+
 /* Footer & Indicators */
 .footer {
     display: flex;
@@ -926,29 +934,12 @@ main {
 
 /* Age Picker Page */
 
-/*.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 500;
-    min-width: 18rem;
-    min-height: 4.2rem;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 .1rem .4rem rgba(46, 32, 49, 0.15);
-    transition: transform .2s ease, background-color .2s ease;
-}*/
-
 .btn--primary,
 .btn--secondary,
 .btn--tertiary {
     font-size: 1.6rem;
     font-weight: 500;
-    box-shadow: 0 .1rem .4rem rgba(46, 32, 49, 0.15);
+    box-shadow: 0 .1rem .4rem rgba(var(--shadow-color-rgb), 0.15);
     transition: transform .2s ease, background-color .2s ease;
 }
 
@@ -1030,8 +1021,8 @@ main {
 .breathwork__reset-btn,
 .breathwork__counter,
 .sensation-panel__action {
-    background-color: #fff;
-    box-shadow: 0 0 0.4rem rgba(46, 32, 49, 0.1);
+    background-color: var(--color-neutral);
+    box-shadow: 0 0 0.4rem rgba(var(--shadow-color-rgb), 0.1);
     border: var(--card-border-width) solid rgb(202, 202, 202);
     border-radius: var(--radius-pill);
     direction: rtl;
@@ -1042,12 +1033,13 @@ main {
     width: 3.2rem;
     aspect-ratio: 1;
     cursor: pointer;
-    box-shadow: 0 0 0.4rem rgba(46, 32, 49, 0.15);
+    box-shadow: 0 0 0.4rem rgba(var(--shadow-color-rgb), 0.15);
 }
 
     .breathwork__reset-btn svg {
         width: 2rem;
         height: 2rem;
+        color: var(--color-primary);
     }
 
 .breathwork__reset-btn,
@@ -1058,7 +1050,7 @@ main {
     .breathwork__reset-btn:hover,
     .sensation-panel__action:hover {
         transform: scale(1.05);
-        box-shadow: 0 0 0.4rem rgba(46, 32, 49, 0.3);
+        box-shadow: 0 0 0.4rem rgba(var(--shadow-color-rgb), 0.3);
     }
 
 .breathwork__counter {
@@ -1068,18 +1060,18 @@ main {
     height: 3.2rem;
     cursor: default;
     transition: box-shadow .2s ease;
-    box-shadow: 0 0 0.4rem rgba(46, 32, 49, 0.15);
+    box-shadow: 0 0 0.4rem rgba(var(--shadow-color-rgb), 0.15);
 }
 
     .breathwork__counter:hover {
-        box-shadow: 0 0 0.4rem rgba(46, 32, 49, 0.3);
+        box-shadow: 0 0 0.4rem rgba(var(--shadow-color-rgb), 0.3);
     }
 
 .breathwork__guide {
     width: 100%;
     max-width: 60rem;
-    background-color: #fff;
-    box-shadow: 0 0 1.5rem rgba(46, 32, 49, 0.1);
+    background-color: var(--color-neutral);
+    box-shadow: 0 0 1.5rem rgba(var(--shadow-color-rgb), 0.1);
     border: var(--card-border-width) solid rgb(202, 202, 202);
     border-radius: var(--radius-pill);
     pointer-events: none;
@@ -1168,7 +1160,7 @@ main {
     width: 100%;
     max-width: 50rem;
     height: 42rem;
-    background: #fff;
+    background: var(--color-neutral);
     box-shadow: var(--box-shadow-primary);
     border: var(--card-border-width) solid rgb(202, 202, 202);
     border-radius: 4.5rem;
@@ -1222,7 +1214,7 @@ main {
     pointer-events: none;
     padding: 0.8rem;
     border-radius: 50%;
-    stroke: var(--color-ink);
+    color: var(--color-primary);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1261,10 +1253,12 @@ main {
 }
 
 .sensation-panel__option {
-    width: 10rem;
+    width: auto;
+    min-width: 11rem;
     height: 3rem;
     font-size: clamp(1.4rem, 4vw, 1.6rem);
     font-weight: 300;
+    color: var(--color-text-primary);
     background-color: transparent;
     border: 0.1rem solid var(--color-primary);
     border-radius: var(--radius-pill);
@@ -1274,12 +1268,16 @@ main {
     cursor: pointer;
 }
 
+    .sensation-panel__option svg {
+        color: var(--color-ink);
+    }
+
     .sensation-panel__option:hover {
         background-color: rgba(160, 193, 185, .3);
     }
 
     .sensation-panel__option span {
-        width: 5rem;
+        min-width: 5rem;
     }
 
 .sensation-panel__option--selected {
@@ -1486,9 +1484,9 @@ main {
     font-weight: 600;
     background-color: #fff;
     border: var(--card-border-width) solid rgb(202, 202, 202, .8);
-    box-shadow: 0 .4rem 1.5rem rgba(46, 32, 49, 0.1);
+    box-shadow: 0 .4rem 1.5rem rgba(var(--shadow-color-rgb), 0.1);
     border-radius: var(--radius-pill);
-    padding: 1rem 8rem;
+    padding: 1rem 4rem;
     position: absolute;
     top: -2rem;
 }
@@ -1606,7 +1604,7 @@ main {
     color: var(--color-text-primary);
     border: var(--border-width) solid var(--border-color);
     border-radius: var(--radius-pill);
-    box-shadow: 0 0 1rem rgba(46, 32, 49, 0.2);
+    box-shadow: 0 0 1rem rgba(var(--shadow-color-rgb), 0.2);
     padding-inline: 1rem;
     cursor: pointer;
     transition: color .2s ease, background-color .2s ease;
@@ -1773,7 +1771,7 @@ main {
 .feedback-card__subtitle {
     font-size: clamp(1.4rem, 1.5vw, 1.6rem);
     font-weight: 400;
-    color: rgba(51, 30, 56, .8);
+    color: var(--color-text-muted);
 }
 
 .feedback-card__slider {
@@ -1832,7 +1830,7 @@ main {
 
 .feedback-card__labels {
     font-size: 1.15rem;
-    color: rgba(51, 30, 56, .8);
+    color: var(--color-text-muted);
     margin-top: 1rem;
 }
 
@@ -1849,7 +1847,7 @@ main {
     font-weight: 500;
     color: #fff;
     background-color: #788E95;
-    box-shadow: 0 .1rem .4rem rgba(46, 32, 49, 0.15);
+    box-shadow: 0 .1rem .4rem rgba(var(--shadow-color-rgb), 0.15);
     gap: 1rem;
     transition: background-color .2s ease;
 }
@@ -2078,7 +2076,7 @@ main {
 .canvas-item {
     background-color: #fff;
     width: 20rem;
-    box-shadow: 0 0 .8rem rgba(46, 32, 49, .2);
+    box-shadow: 0 0 .8rem rgba(var(--shadow-color-rgb), .2);
     border-radius: 1.5rem;
     padding: 0.6rem;
     transition: transform .2s ease;
@@ -2086,7 +2084,7 @@ main {
 
     .canvas-item:hover {
         transform: scale(1.06);
-        box-shadow: 0 0 .8rem rgba(46, 32, 49, .2), 0 0 .2rem #F4E8C1;
+        box-shadow: 0 0 .8rem rgba(var(--shadow-color-rgb), .2), 0 0 .2rem #F4E8C1;
     }
 
 .canvas-item__img {
@@ -2119,15 +2117,16 @@ main {
 }
 
 .canvas-item__date {
-    color: rgba(51, 30, 56, 0.8);
+    color: var(--color-text-muted);
 }
 
 .gallery-card__note {
-    color: rgba(51, 30, 56, 0.8);
+    color: var(--color-text-muted);
     font-size: clamp(1.1rem, 1.4vw, 1,4rem);
     font-weight: 600;
     margin-top: 0.6rem;
     user-select: none;
+    direction: rtl;
 }
 
 /* Custom Alert */
@@ -2466,7 +2465,7 @@ main {
     }
 
     .card__input {
-        padding: 1rem 1.6rem;
+        padding: 1rem 1.6rem 1rem 5rem;
     }
 
         .card__input::placeholder {
@@ -2555,7 +2554,7 @@ main {
         width: 100%;
         position: fixed;
         inset: 0;
-        z-index: 10;
+        z-index: 100;
         padding-top: 3rem;
     }
 
@@ -2789,7 +2788,7 @@ main {
     .chat__header {
         max-width: 28rem;
         min-height: 6rem;
-        padding: 1rem 2rem;
+        padding: 1rem 1rem;
     }
 
     .chat__avatar {
