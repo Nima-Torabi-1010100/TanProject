@@ -150,15 +150,15 @@ main {
 }
 
 .decoration__shape--yellow {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-d-yellow);
 }
 
 .decoration__shape--purple {
-    background-color: var(--color-primary);
+    background-color: var(--color-d-purple);
 }
 
 .decoration__shape--green {
-    background-color: var(--color-accent);
+    background-color: var(--color-d-green);
 }
 
 .decoration__shape--hero-primary {
@@ -448,7 +448,7 @@ main {
 }
 
     .profile-btn:hover {
-        background-color: var(--color-text-primary);
+        background-color: var(--color-btn-p-hover);
         transform: scale(1.03);
     }
 
@@ -675,6 +675,15 @@ main {
         cursor: pointer;
     }
 
+    .kebab-menu .dot-top,
+    .kebab-menu .dot-bottom {
+        fill: var(--color-primary);
+    }
+
+    .kebab-menu .dot-middle {
+        fill: var(--color-ink);
+    }
+
 .menu-toggle {
     display: none;
     width: 4rem;
@@ -720,9 +729,9 @@ main {
     width: 100%;
     position: fixed;
     inset: 0;
-    z-index: 10;
+    z-index: 100;
     padding-top: 2rem;
-    background-color: rgba(238, 238, 238, .5);
+    background-color: var(--menu-cover);
     backdrop-filter: blur(0rem);
     -webkit-backdrop-filter: blur(0rem);
     opacity: 0;
@@ -772,6 +781,10 @@ main {
         width: 4rem;
     }
 
+.rect1 {
+    fill: var(--color-ink);
+}
+
 .menu-cover__links {
     border: .1rem solid var(--color-accent);
     border-radius: var(--radius-pill);
@@ -811,11 +824,13 @@ main {
 
 .card__input {
     width: 100%;
+    background-color: var(--color-input);
     border: 0.1rem solid var(--color-primary);
     border-radius: var(--radius-pill);
     padding: 1.6rem 2rem 1.6rem 6rem;
     outline: none;
     caret-color: var(--color-secondary);
+    color: var(--color-text-primary);
 }
 
     .card__input:focus {
@@ -823,7 +838,11 @@ main {
     }
 
     .card__input::placeholder {
-        color: rgba(51, 30, 56, 0.5);
+        color: var(--color-input-placeholder);
+    }
+
+    .card__input.english {
+        padding: 1.6rem 2rem 1.6rem 2rem;
     }
 
 .card__submit-btn {
@@ -838,6 +857,11 @@ main {
 
     .card__submit-btn:hover {
         background-color: #5b7177;
+    }
+
+    .card__submit-btn.english {
+        right: 0.6rem;
+        left: unset;
     }
 
 
@@ -885,7 +909,7 @@ main {
         pointer-events: auto;
     }
 
-.btn--english {
+.btn.english {
     transform: scaleX(-1) !important;
 }
 
@@ -928,7 +952,7 @@ main {
     font-size: 2rem;
     font-weight: 300;
     padding: 1rem;
-    color: rgba(51, 30, 56, .75);
+    color: rgba(var(--color-ink-n), .8);
     user-select: none;
 }
 
@@ -949,17 +973,21 @@ main {
 }
 
     .btn--primary:hover {
-        background-color: var(--color-ink);
+        background-color: var(--color-btn-p-hover);
     }
 
 .btn--secondary {
-    background-color: #fff;
-    color: var(--color-primary);
+    background-color: var(--color-neutral);
+    color: var(--color-text-secondary);
     gap: 1rem;
 }
 
     .btn--secondary:hover {
-        background-color: #f3f1f9;
+        background-color: var(--color-btn-s-hover);
+    }
+
+    .btn--secondary svg {
+        color: var(--color-text-secondary);
     }
 
 .btn--tertiary {
@@ -1039,7 +1067,7 @@ main {
     .breathwork__reset-btn svg {
         width: 2rem;
         height: 2rem;
-        color: var(--color-primary);
+        color: var(--color-text-secondary);
     }
 
 .breathwork__reset-btn,
@@ -1191,12 +1219,26 @@ main {
     transform: translateX(-2rem);
 }
 
+    .sensation-panel[data-step="1"] .sensation-panel__step--2.english {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(2rem);
+    }
+
 .sensation-panel[data-step="2"] .sensation-panel__step--1 {
     opacity: 0;
     pointer-events: none;
     position: absolute;
     transform: translateX(2rem);
 }
+
+    .sensation-panel[data-step="2"] .sensation-panel__step--1.english {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(-2rem);
+    }
 
 .sensation-panel[data-step="2"] .sensation-panel__step--2 {
     opacity: 1;
@@ -1238,6 +1280,16 @@ main {
 
 .sensation-panel__nav-btn--back {
     right: 2rem;
+}
+
+.sensation-panel__nav-btn--next.english {
+    right: 2rem;
+    left: unset;
+}
+
+.sensation-panel__nav-btn--back.english {
+    right: unset;
+    left: 2rem;
 }
 
 .sensation-panel__title h3 {
@@ -1400,7 +1452,7 @@ main {
         height: 2.5rem;
         border-radius: 50%;
         background-color: #fff;
-        border: 0.4rem solid var(--color-ink);
+        border: 0.4rem solid var(--color-slider);
         cursor: pointer;
     }
 
@@ -1423,6 +1475,11 @@ main {
 .arousal-slider__labels {
     width: 100%;
 }
+
+    .valence-slider__labels.english,
+    .arousal-slider__labels.english {
+        flex-direction: row-reverse;
+    }
 
 .valence-slider__label,
 .arousal-slider__label {
@@ -1465,7 +1522,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
+    background: var(--color-neutral);
     border: var(--card-border-width) solid rgb(202, 202, 202, .8);
     position: relative;
     width: 100%;
@@ -1482,7 +1539,7 @@ main {
     max-width: 38rem;
     min-height: 7rem;
     font-weight: 600;
-    background-color: #fff;
+    background-color: var(--color-neutral);
     border: var(--card-border-width) solid rgb(202, 202, 202, .8);
     box-shadow: 0 .4rem 1.5rem rgba(var(--shadow-color-rgb), 0.1);
     border-radius: var(--radius-pill);
@@ -1550,6 +1607,10 @@ main {
     border-radius: 3rem 2.5rem 0.5rem 3rem;
 }
 
+.chat__bubble.english {
+    direction: ltr;
+}
+
 .chat__input-area {
     margin-top: 2rem;
     position: relative;
@@ -1560,7 +1621,8 @@ main {
 
 .chat__input {
     width: 100%;
-    background: #fff;
+    color: var(--color-text-primary);
+    background: var(--color-input);
     border: 0.1rem solid var(--color-primary);
     border-radius: var(--radius-pill);
     box-shadow: 0 0 1.5rem 0.1rem rgba(112, 105, 147, 0.8), 1.6rem 0 2rem 0px rgba(112, 105, 147, 0.16) inset;
@@ -1574,7 +1636,11 @@ main {
     }
 
     .chat__input::placeholder {
-        color: rgba(51, 30, 56, 0.5);
+        color: var(--color-input-placeholder);
+    }
+
+    .chat__input.english {
+        direction: ltr;
     }
 
 .chat__send-btn {
@@ -1588,7 +1654,7 @@ main {
 }
 
     .chat__send-btn:hover {
-        background-color: var(--color-ink);
+        background-color: var(--color-btn-p-hover);
     }
 
 .chat__suggestions {
@@ -1648,11 +1714,11 @@ main {
     border-radius: 3.5rem;
     overflow: hidden;
     color: var(--color-text-primary);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: linear-gradient(135deg, var( --glass-bg-start) 0%, var(--glass-bg-end) 100%);
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
     border: var(--border-width) solid rgba(172, 172, 172);
-    box-shadow: 0 0 .8rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 .8rem var(--glass-shadow);
 }
 
 .reflection {
@@ -1834,6 +1900,10 @@ main {
     margin-top: 1rem;
 }
 
+    .feedback-card__labels.english {
+        flex-direction: row-reverse;
+    }
+
 .action-card {
     min-height: 12rem;
     margin-top: 2rem;
@@ -1854,6 +1924,10 @@ main {
 
     .action-card__btn:hover {
         background-color: #5b7177;
+    }
+
+    .action-card__btn.secondary-english {
+        min-width: 22rem;
     }
 
 /* Loading Animation */
@@ -1944,11 +2018,11 @@ main {
     border-radius: 3.5rem;
     overflow: hidden;
     color: var(--color-text-primary);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: linear-gradient(135deg, var( --glass-bg-start) 0%, var(--glass-bg-end) 100%);
     backdrop-filter: blur(1rem);
     -webkit-backdrop-filter: blur(1rem);
-    border: var(--border-width) solid rgba(172, 172, 172);
-    box-shadow: 0 0 .8rem rgba(0, 0, 0, 0.15);
+    border: var(--border-width) solid var(--glass-border);
+    box-shadow: 0 0 .8rem var(--glass-shadow);
     gap: 4rem;
     padding: 2rem;
     margin-top: 3rem;
@@ -1956,7 +2030,7 @@ main {
 
 .profile-card,
 .gallery-card {
-    background-color: #F9F9F9;
+    background-color: var(--color-bg);
     box-shadow: var(--box-shadow-primary);
     border-radius: 3.5rem;
     border: 0.1rem solid rgba(172, 172, 172);
@@ -2468,6 +2542,10 @@ main {
         padding: 1rem 1.6rem 1rem 5rem;
     }
 
+        .card__input.english {
+            padding: 1rem 2rem 1rem 2rem;
+        }
+
         .card__input::placeholder {
             font-size: 1.2rem;
         }
@@ -2528,6 +2606,8 @@ main {
     .sensation-panel {
         height: auto;
         padding: 3rem,4rem;
+        border-inline: none;
+        border-width: 0.2rem;
     }
 
     .sensation-panel__options {
@@ -2885,7 +2965,7 @@ main {
         }
 
     .body-mapping__actions {
-        background: #fff;
+        background: var(--color-neutral);
         width: 100%;
         margin-top: 0;
         padding: 1.5rem 3rem calc(2rem + env(safe-area-inset-bottom));

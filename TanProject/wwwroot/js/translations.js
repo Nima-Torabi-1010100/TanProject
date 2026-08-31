@@ -16,7 +16,8 @@ const translations = {
             "langTooltip": "انگلیسی",
             "profileBtn": "تَن من",
             "defaultUserName": "دوست من",
-            "presenceText": "حضور تو در تَن"
+            "presenceText": "حضور تو در تَن",
+            "dropdownBtn": "بوم‌های ثبت شده من",
         },
         "hero": {
             "titlePart1": "به ",
@@ -164,7 +165,8 @@ const translations = {
             "feedbackExact": "دقیقاً همین بود",
             "feedbackFar": "خیلی دور بود",
             "actionTitle": "اگر دوست داری حست کمی نرم‌تر بشه و قدمی برای حال بهتر تَنِت برداری:",
-            "actionButton": "چند تمرین کوتاه"
+            "actionButton": "چند تمرین کوتاه",
+            "feedbackLabels": ['خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود']
         },
         "dashboard": {
             "title": "تَن من",
@@ -184,6 +186,16 @@ const translations = {
             "Coldness": "سرما",
             "Relief": "رهایی",
             "Calm": "آرامش"
+        },
+        "alerts": {
+            "enterName": "لطفاً نام خود را وارد کنید.",
+            "selectBodyPart": "لطفاً ابتدا بخشی از بدن را انتخاب کنید.",
+            "selectSensationType": "لطفاً ابتدا نوع حس را انتخاب کنید.",
+            "incompleteSensation": "اطلاعات حس کامل نیست.",
+            "maxSensationsReached": "حداکثر ۵ حس می‌توانید ثبت کنید. برای ثبت جدید، ابتدا نقشه را ریست کنید.",
+            "noSensationRegistered": "حسی ثبت نشده!",
+            "needAtLeastOneSensation": "حداقل باید یک حس ثبت کنی تا بتونی ادامه بدی.",
+            "okBtn": "باشه"
         }
     },
     "en": {
@@ -203,7 +215,8 @@ const translations = {
             "langTooltip": "Farsi",
             "profileBtn": "My Tan",
             "defaultUserName": "friend",
-            "presenceText": "time you've been with Tan"
+            "presenceText": "time you've been with Tan",
+            "dropdownBtn": "My Saved Canvases"
         },
         "hero": {
             "titlePart1": "Listen to your ",
@@ -351,7 +364,8 @@ const translations = {
             "feedbackExact": "Exactly right",
             "feedbackFar": "Very far off",
             "actionTitle": "If you'd like to soften what you're feeling and take a small step toward feeling better in your body:",
-            "actionButton": "A Few Short Exercises"
+            "actionButton": "A Few Short Exercises",
+            "feedbackLabels": ['Way too far', 'A bit far', 'Close', 'Very close', 'Exactly right']
         },
         "dashboard": {
             "title": "My Tan",
@@ -371,6 +385,16 @@ const translations = {
             "Coldness": "Coldness",
             "Relief": "Relief",
             "Calm": "Calm"
+        },
+        "alerts": {
+            "enterName": "Please enter your name.",
+            "selectBodyPart": "Please select a body part first.",
+            "selectSensationType": "Please select a sensation type first.",
+            "incompleteSensation": "Sensation information is incomplete.",
+            "maxSensationsReached": "You can register up to 5 sensations. Reset the map to add a new one.",
+            "noSensationRegistered": "No sensation registered!",
+            "needAtLeastOneSensation": "You need to register at least one sensation to continue.",
+            "okBtn": "OK"
         }
     }
 }

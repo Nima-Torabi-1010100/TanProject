@@ -1,15 +1,17 @@
 :root,
 [data-theme="light"] {
-    --color-ink: #331E38;
-    --color-primary: #706993;
-    --color-secondary: #788E95;
-    --color-tertiary: #F4E8C1;
-    --color-accent: #A0C1B9;
+    --color-ink: rgb(51, 30, 56);
+    --color-btn-p-hover: rgb(51, 30, 56);
+    --color-btn-s-hover: #f3f1f9;
+    --color-ink-n: 51, 30, 56;
+    --color-primary: rgb(112, 105, 147);
+    --color-secondary: rgb(120, 142, 149);
+    --color-tertiary: rgb(244, 232, 193);
+    --color-accent: rgb(160, 193, 185);
     --color-neutral: #fff;
     --color-danger: #AD555D;
     --color-text-primary: var(--color-ink);
-    --color-text-secondary: #706993;
-    --color-text-muted: rgba(51, 30, 56, 0.8);
+    --color-text-secondary: rgb(112, 105, 147);
     --color-dot: rgba(112, 105, 147, .7);
     --color-sensation-dot: rgba(112, 105, 147, .3);
     --color-bg: #F9F9F9;
@@ -23,22 +25,50 @@
     /* Font % Radius */
     --font-app: "Modam", sans-serif;
     --radius-pill: 99rem;
+    /* Glassmorphism */
+    --glass-bg-start: rgba(255, 255, 255, 0.8);
+    --glass-bg-end: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(172, 172, 172, 0.8);
+    --glass-shadow: rgba(0, 0, 0, 0.15);
+    --menu-cover: rgba(238, 238, 238, .5);
+    --color-input: #fff;
+    --color-input-placeholder: rgba(51, 30, 56, 0.5);
+    --color-slider: rgb(51, 30, 56);
+    /* Decoration */
+    --color-d-yellow: rgb(244, 232, 193);
+    --color-d-purple: rgb(112, 105, 147);
+    --color-d-green: rgb(160, 193, 185);
 }
 
 [data-theme="dark"] {
-    --color-ink: #F4E8C1;
-    --color-primary: #8C82B5;
-    --color-secondary: #93A8AE;
-    --color-text-primary: #F4E8C1;
+    --color-ink: rgb(244, 232, 193);
+    --color-btn-p-hover: rgb(125, 117, 163);
+    --color-btn-s-hover: #474747;
+    --color-ink-n: 244, 232, 193;
+    --color-primary: rgb(140, 130, 181);
+    --color-secondary: rgb(147, 168, 174);
     --color-accent: #A0C1B9;
-    --color-danger: #C9666E;
-    --color-neutral: #1E1E22;
-    --color-text-primary: #F4E8C1;
+    --color-danger: #e2737c;
+    --color-neutral: rgb(30, 30, 34);
+    --color-text-primary: rgb(244, 232, 193);
     --color-text-secondary: #B6AEDA;
-    --color-dot: rgba(244, 232, 193, .7);
+    --color-dot: rgba(244, 232, 193, .5);
     --border-color: rgba(255, 255, 255, .12);
     --color-bg: #121212;
     --shadow-color-rgb: 0, 0, 0;
     --box-shadow-primary: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
     --shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.6);
+    /* Glassmorphism */
+    --glass-bg-start: rgba(255, 255, 255, 0.08);
+    --glass-bg-end: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
+    --menu-cover: rgb(55, 55, 55, 0.50);
+    --color-input: #1E1E22;
+    --color-input-placeholder: rgba(244, 232, 193, .5);
+    --color-slider: rgb(84, 73, 128);
+    /* Decoration */
+    --color-d-yellow: rgb(244, 232, 193, 0.5);
+    --color-d-purple: rgb(112, 105, 147, 0.6);
+    --color-d-green: rgb(160, 193, 185, 0.6);
 }

@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function setStep(stepNumber) {
         if (stepNumber === 2 && !currentSelection.partId) {
             resetCurrentSelection();
-            showAlert('لطفاً ابتدا بخشی از بدن را انتخاب کنید.');
+            showAlert(getTranslations("alerts").selectBodyPart);
             return;
         }
         if (stepNumber === 2 && !currentSelection.type) {
-            showAlert('لطفاً ابتدا نوع حس را انتخاب کنید.');
+            showAlert(getTranslations("alerts").selectSensationType);
             return;
         }
         const currentLanguage = getCurrentLang();
@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (panel) panel.setAttribute('data-step', stepNumber.toString());
         updateNavButtons(stepNumber);
+        applyLangClasses(currentLanguage);
     }
 
     nextBtn?.addEventListener('click', () => setStep(2));
@@ -117,11 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn?.addEventListener('click', () => {
 
         if (!currentSelection.partId || !currentSelection.type) {
-            showAlert('اطلاعات حس کامل نیست.');
+            showAlert(getTranslations("alerts").incompleteSensation);
             return;
         }
         if (sensationsList.length >= 5) {
-            showAlert('حداکثر ۵ حس می‌توانید ثبت کنید. برای ثبت جدید، ابتدا نقشه را ریست کنید.');
+            showAlert(getTranslations("alerts").maxSensationsReached);
             return;
         }
 
@@ -146,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (editingIndex === null) return;
 
         if (!currentSelection.partId || !currentSelection.type) {
-            alert('اطلاعات حس کامل نیست.');
+            showAlert(getTranslations("alerts").incompleteSensation);
             return;
         }
 
@@ -263,14 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadEntryIntoPanel(i);
             }
             else {
-                showAlert("حسی ثبت نشده!");
+                showAlert(getTranslations("alerts").noSensationRegistered);
             }
         });
     });
 
     continueBtn?.addEventListener('click', () => {
         if (sensationsList.length === 0) {
-            showAlert("حداقل باید یک حس ثبت کنی تا بتونی ادامه بدی. ");
+            showAlert(getTranslations("alerts").needAtLeastOneSensation);
             return;
         }
         window.location.href = "/Chat";

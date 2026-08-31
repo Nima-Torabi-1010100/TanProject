@@ -1,5 +1,17 @@
-const FEEDBACK_LABELS = [
-    'خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود'
+const LANG_CLASS_TARGETS = [
+    { selector: '.next-btn', className: 'english' },
+    { selector: '.valence-slider__labels', className: 'english' },
+    { selector: '.arousal-slider__labels', className: 'english' },
+    { selector: '.card__submit-btn', className: 'english' },
+    { selector: '.card__input', className: 'english' },
+    { selector: '.chat__input', className: 'english' },
+    { selector: '.chat__bubble', className: 'english' },
+    { selector: '.feedback-card__labels', className: 'english' },
+    { selector: '.action-card__btn', className: 'secondary-english' },
+    { selector: '.sensation-panel__nav-btn--next', className: 'english' },
+    { selector: '.sensation-panel__nav-btn--back', className: 'english' },
+    { selector: '.sensation-panel[data-step="1"] .sensation-panel__step--2', className: 'english' },
+    { selector: '.sensation-panel[data-step="2"] .sensation-panel__step--1', className: 'english' },
 ];
 
 let currentStep = 0;
@@ -91,6 +103,13 @@ function updateThemeTooltip() {
 //==========
 //Language
 //==========
+function applyLangClasses(lang) {
+    LANG_CLASS_TARGETS.forEach(({ selector, className }) => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.toggle(className, lang === 'en');
+        });
+    });
+}
 function changeLanguage(lang) {
     document.documentElement.dir = (lang === 'fa') ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
@@ -118,6 +137,7 @@ function changeLanguage(lang) {
         }
     });
 
+    applyLangClasses(lang);
     updateThemeTooltip();
     localStorage.setItem('preferred_lang', lang);
 }
@@ -189,7 +209,7 @@ function updateSliderFill(slider) {
     if (!slider) return;
     const percent = slider.value;
     slider.style.background =
-        `linear-gradient(to right, var(--color-ink) ${percent}%, #d1d1d1 ${percent}%)`;
+        `linear-gradient(to right, var(--color-slider) ${percent}%, #d1d1d1 ${percent}%)`;
 }
 if (valenceSlider) {
     updateSliderFill(valenceSlider);
@@ -213,11 +233,11 @@ const sliderStatus = document.getElementById('slider-status');
 
 function updateRange() {
     if (!feedbackRange) return;
-
+    debugger;
     const val = parseInt(feedbackRange.value, 10);
-    const index = Math.min(Math.floor(val / 20), FEEDBACK_LABELS.length - 1);
+    const index = Math.min(Math.floor(val / 20), getTranslations("reflection").feedbackLabels.length - 1);
 
-    sliderStatus.textContent = FEEDBACK_LABELS[index];
+    sliderStatus.textContent = getTranslations("reflection").feedbackLabels[index];
     console.log(val);
     feedbackRange.style.setProperty('--fill', val + '%');
 }
@@ -259,7 +279,7 @@ function saveNameAndNext() {
         goToNextSection();
     }
     else {
-        showAlert("لطفا نام خود را وارد کنید!");
+        showAlert(getTranslations('alerts').enterName);
     }
 }
 function saveAgeAndNext() {
@@ -301,7 +321,7 @@ function saveAgeAndNext() {
         if (nextBtn) {
             nextBtn.classList.remove('hidden');
             if (getCurrentLang() === 'en')
-                nextBtn.classList.add('btn--english');
+                nextBtn.classList.add('english');
         };
     }
 })();
