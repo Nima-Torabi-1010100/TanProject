@@ -1705,6 +1705,23 @@ main {
     }
 
 /* Reflection Page */
+.reflection-status {
+    opacity: 0;
+    font-size: clamp(1.6rem, 1.8vw, 2rem);
+    font-weight: 600;
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+    .reflection-status.is-visible {
+        opacity: 1;
+    }
+
+    .reflection-status.fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
 .reflection,
 .feedback-card,
 .action-card {
@@ -1715,8 +1732,8 @@ main {
     overflow: hidden;
     color: var(--color-text-primary);
     background: linear-gradient(135deg, var( --glass-bg-start) 0%, var(--glass-bg-end) 100%);
-    backdrop-filter: blur(1rem);
-    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
     border: var(--border-width) solid rgba(172, 172, 172);
     box-shadow: 0 0 .8rem var(--glass-shadow);
 }
@@ -1824,6 +1841,7 @@ main {
     min-height: 20rem;
     padding: 4rem;
     margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 .feedback-card__title,
@@ -1904,6 +1922,30 @@ main {
         flex-direction: row-reverse;
     }
 
+.feedback-submit {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--color-secondary);
+    box-shadow: 0 .1rem .4rem rgba(var(--shadow-color-rgb), 0.15);
+    margin-inline: auto;
+    gap: 1rem;
+    transition: background-color .2s ease;
+}
+
+    .feedback-submit:hover:not(:disabled) {
+        background-color: #5b7177;
+    }
+
+    .feedback-submit.secondary-english {
+        min-width: 22rem;
+    }
+
+    .feedback-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
 .action-card {
     min-height: 12rem;
     margin-top: 2rem;
@@ -1916,7 +1958,7 @@ main {
     font-size: 1.6rem;
     font-weight: 500;
     color: #fff;
-    background-color: #788E95;
+    background-color: var(--color-secondary);
     box-shadow: 0 .1rem .4rem rgba(var(--shadow-color-rgb), 0.15);
     gap: 1rem;
     transition: background-color .2s ease;
@@ -1965,10 +2007,11 @@ main {
     top: 0;
     left: -1000rem;
     width: 60rem;
-    background: #fff;
+    background: var(--color-neutral);
     overflow: hidden;
     pointer-events: none;
     padding: 4rem;
+    color: var(--color-text-primary);
 }
 
 .reflection-share-card__head {
@@ -2148,7 +2191,7 @@ main {
     }
 
 .canvas-item {
-    background-color: #fff;
+    background-color: var(--color-canva-item);
     width: 20rem;
     box-shadow: 0 0 .8rem rgba(var(--shadow-color-rgb), .2);
     border-radius: 1.5rem;
@@ -2187,11 +2230,12 @@ main {
 }
 
 .canvas-item__tag {
-    color: rgba(51, 30, 56);
+    color: var(--color-ink);
 }
 
 .canvas-item__date {
     color: var(--color-text-muted);
+    direction: rtl;
 }
 
 .gallery-card__note {

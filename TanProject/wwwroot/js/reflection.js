@@ -1,10 +1,16 @@
 ﻿const CACHE_KEY = 'tan_reflection_result';
+const feedbackSubmit = document.getElementById('feedback-submit');
 document.addEventListener("DOMContentLoaded", async () => {
     const image = document.querySelector('.reflection__img');
     const narrativeWrapper = document.querySelector('.reflection__narrative-wrapper');
 
+    debugger;
     const cached = localStorage.getItem(CACHE_KEY);
+    const feedback = localStorage.getItem(STORAGE_KEYS.FEEDBACK);
     if (cached) {
+        if (feedback) {
+            setSubmitted();
+        }
         hideLoadingState(image, narrativeWrapper);
         renderReflection(JSON.parse(cached));
         return;
@@ -109,14 +115,26 @@ function renderReflection({ imageUrl, paragraphs }) {
 function getAntiForgeryToken() {
     return document.querySelector('input[name="__RequestVerificationToken"]')?.value || '';
 }
-
+const statusMessages = getTranslations('reflection').loadingMessages;
+let statusInterval;
 function showLoadingState(image, narrativeW) {
     image?.classList.add('is-loading');
     narrativeW?.classList.add('is-loading');
+
+    const statusEl = document.getElementById('reflection-status');
+    let i = 0;
+    animateText(statusEl, statusMessages[0]);
+    statusEl.classList.add('is-visible');
+    statusInterval = setInterval(() => {
+        i = (i + 1) % statusMessages.length;
+        animateText(statusEl, statusMessages[i]);
+    }, 2500);
 }
 function hideLoadingState(image, narrativeW) {
     image?.classList.remove('is-loading');
     narrativeW?.classList.remove('is-loading');
+    clearInterval(statusInterval);
+    document.getElementById('reflection-status')?.classList.remove('is-visible');
 }
 function showErrorState(image, narrativeW) {
     hideLoadingState(image, narrativeW);
@@ -148,4 +166,57 @@ function getPersianDate() {
         month: 'long'
     }).format(new Date());
 }
+
+function setLoading(isLoading) {
+    feedbackSubmit.disabled = isLoading;
+    if (isLoading)
+        feedbackSubmit.textContent = getTranslations('reflection').feedbackSubmiting;
+}
+function setSubmitted() {
+    feedbackSubmit.disabled = true;
+    feedbackSubmit.textContent = getTranslations('reflection').feedbackSubmitted;
+}
+function setError() {
+    feedbackSubmit.disabled = false;
+    feedbackSubmit.textContent = getTranslations('reflection').feedbackSubmitFailed;
+}
+
+feedbackSubmit?.addEventListener('click', async () => {
+    setLoading(true);
+    const val = parseInt(feedbackRange.value, 10);
+    const relevanceRating = Math.min(Math.floor(val / 20) + 1, 5);
+
+    try {
+        const response = await fetch('?handler=Feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'RequestVerificationToken':
+                    document.querySelector(
+                        'input[name="__RequestVerificationToken"]'
+                    )?.value
+            },
+            body: `relevanceRating=${relevanceRating}`
+        });
+
+        if (!response.ok) {
+            setError();
+            throw new Error('Failed to submit feedback');
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+            setSubmitted();
+            localStorage.setItem(STORAGE_KEYS.FEEDBACK, true);
+            console.log('Feedback saved successfully');
+        }
+        else {
+            setError();
+        }
+
+    } catch (error) {
+        console.error('Error submitting feedback:', error);
+    }
+})
 

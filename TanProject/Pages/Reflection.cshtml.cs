@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TanProject.Data;
 using TanProject.Framework.Messages;
 using TanProject.Models.Chat;
 using TanProject.Models.Reflection;
@@ -10,9 +11,11 @@ namespace TanProject.Pages
     public class ReflectionModel : PageModel
     {
         private readonly ISessionSummaryAiService _aiService;
-        public ReflectionModel(ISessionSummaryAiService aiService)
+        private readonly TanDbContext _context;
+        public ReflectionModel(ISessionSummaryAiService aiService, TanDbContext context)
         {
             _aiService = aiService;
+            _context = context;
         }
         public void OnGet()
         {
@@ -43,6 +46,21 @@ namespace TanProject.Pages
                 paragraphs = ExtractParagraphs(reflectionText)
             });
         }
+        public async Task<IActionResult> OnPostFeedbackAsync(int relevanceRating)
+        {
+            if (relevanceRating < 1 || relevanceRating > 5)
+                return BadRequest();
+
+            var feedback = new ReflectionFeedback
+            {
+                RelevanceRating = relevanceRating,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.ReflectionFeedbacks.Add(feedback);
+            await _context.SaveChangesAsync();
+            return new JsonResult(new { success = true });
+        }
         private static IReadOnlyList<string> ExtractParagraphs(string html) =>
             html.Replace("<p>", "").Split("</p>", StringSplitOptions.RemoveEmptyEntries)
                 .Select(p => p.Trim())
@@ -59,5 +77,6 @@ namespace TanProject.Pages
             ["Relief"] = "/images/reflection/relief.jpeg",
             ["Tension"] = "/images/reflection/tension.jpeg",
         };
+
     }
 }

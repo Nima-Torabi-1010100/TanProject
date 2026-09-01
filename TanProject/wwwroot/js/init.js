@@ -3,7 +3,8 @@ const STORAGE_KEYS = {
     LANG: 'preferred_lang',
     USER_NAME: 'userName',
     USER_AGE: 'userAge',
-    JOIN_DATE: 'tanJoinDate'
+    JOIN_DATE: 'tanJoinDate',
+    FEEDBACK: 'feedback'
 };
 (function requireProfileForProtectedPages() {
     const currentPath = window.location.pathname.replace(/\/$/, '');

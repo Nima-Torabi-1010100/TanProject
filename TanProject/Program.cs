@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using TanProject.Data;
 using TanProject.Prompts;
 using TanProject.Services.AI;
 using TanProject.Services.AI.Ollama;
@@ -22,6 +24,9 @@ builder.Services.AddAntiforgery(options => options.HeaderName = "RequestVerifica
 // Add services to the container.
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddRazorPages();
+
+var connectionString = builder.Configuration.GetConnectionString("TanDatabase");
+builder.Services.AddDbContext<TanDbContext>(x => x.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

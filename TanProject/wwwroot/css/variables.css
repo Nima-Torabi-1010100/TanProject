@@ -18,6 +18,7 @@
     --border-color: rgba(202, 202, 202, .8);
     --border-width: 0.5px;
     --card-border-width: 1px;
+    --color-canva-item: #fff;
     /* Shadows */
     --shadow-color-rgb: 46, 32, 49;
     --box-shadow-primary: 0 0 1.5rem rgba(46, 32, 49, .1);
@@ -38,6 +39,8 @@
     --color-d-yellow: rgb(244, 232, 193);
     --color-d-purple: rgb(112, 105, 147);
     --color-d-green: rgb(160, 193, 185);
+    /* Blur */
+    --blur: blur(1rem);
 }
 
 [data-theme="dark"] {
@@ -55,6 +58,7 @@
     --color-dot: rgba(244, 232, 193, .5);
     --border-color: rgba(255, 255, 255, .12);
     --color-bg: #121212;
+    --color-canva-item: rgb(62 62 62);
     --shadow-color-rgb: 0, 0, 0;
     --box-shadow-primary: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
     --shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.6);
@@ -71,4 +75,6 @@
     --color-d-yellow: rgb(244, 232, 193, 0.5);
     --color-d-purple: rgb(112, 105, 147, 0.6);
     --color-d-green: rgb(160, 193, 185, 0.6);
+    /* Blur */
+    --blur: blur(5rem);
 }

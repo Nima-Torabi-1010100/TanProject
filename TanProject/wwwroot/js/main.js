@@ -7,7 +7,7 @@ const LANG_CLASS_TARGETS = [
     { selector: '.chat__input', className: 'english' },
     { selector: '.chat__bubble', className: 'english' },
     { selector: '.feedback-card__labels', className: 'english' },
-    { selector: '.action-card__btn', className: 'secondary-english' },
+    { selector: '.feedback-submit', className: 'secondary-english' },
     { selector: '.sensation-panel__nav-btn--next', className: 'english' },
     { selector: '.sensation-panel__nav-btn--back', className: 'english' },
     { selector: '.sensation-panel[data-step="1"] .sensation-panel__step--2', className: 'english' },
@@ -233,7 +233,6 @@ const sliderStatus = document.getElementById('slider-status');
 
 function updateRange() {
     if (!feedbackRange) return;
-    debugger;
     const val = parseInt(feedbackRange.value, 10);
     const index = Math.min(Math.floor(val / 20), getTranslations("reflection").feedbackLabels.length - 1);
 

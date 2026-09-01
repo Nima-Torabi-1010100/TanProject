@@ -156,6 +156,7 @@ const translations = {
         },
         "reflection": {
             "title": "تن | گام چهارم",
+            "stepText": "گام چهارم: دیدن و پذیرش",
             "experienceTitle": "روایت حس شما",
             "shareExperience": "اشتراک گذاری این تجربه!",
             "feedbackTitle": "این روایت چقدر با حس واقعی امروزت هم‌خوانی داشت؟",
@@ -166,7 +167,17 @@ const translations = {
             "feedbackFar": "خیلی دور بود",
             "actionTitle": "اگر دوست داری حست کمی نرم‌تر بشه و قدمی برای حال بهتر تَنِت برداری:",
             "actionButton": "چند تمرین کوتاه",
-            "feedbackLabels": ['خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود']
+            "feedbackLabels": ['خیلی دور بود', 'کمی دور بود', 'نزدیک', 'خیلی نزدیک', 'دقیقاً همین بود'],
+            "feedbackSubmit": "ثبت بازخورد",
+            "feedbackSubmiting": "در حال ثبت...",
+            "feedbackSubmitted": "بازخورد ثبت شد",
+            "feedbackSubmitFailed": "دوباره تلاش کنید",
+            "loadingMessages": [
+                "در حال گوش دادن به احساس تو...",
+                "تصویر داره شکل می‌گیره...",
+                "کلمات دارن پیدا میشن...",
+                "چند نفس دیگه مونده..."
+            ]
         },
         "dashboard": {
             "title": "تَن من",
@@ -355,6 +366,7 @@ const translations = {
         },
         "reflection": {
             "title": "Tan | Step 4",
+            "stepText": "Step 4: Body-Aware Conversation",
             "experienceTitle": "Your Sensation's Story",
             "shareExperience": "Share This Experience!",
             "feedbackTitle": "How closely did this story match how you really felt today?",
@@ -365,7 +377,17 @@ const translations = {
             "feedbackFar": "Very far off",
             "actionTitle": "If you'd like to soften what you're feeling and take a small step toward feeling better in your body:",
             "actionButton": "A Few Short Exercises",
-            "feedbackLabels": ['Way too far', 'A bit far', 'Close', 'Very close', 'Exactly right']
+            "feedbackLabels": ['Way too far', 'A bit far', 'Close', 'Very close', 'Exactly right'],
+            "feedbackSubmit": "Submit feedback",
+            "feedbackSubmiting": "Submitting...",
+            "feedbackSubmitted": "Feedback submitted",
+            "feedbackSubmitFailed": "Try again",
+            "loadingMessages": [
+                "Listening to what you're feeling...",
+                "Your image is taking shape...",
+                "Finding the right words...",
+                "Just a few more breaths..."
+            ]
         },
         "dashboard": {
             "title": "My Tan",
