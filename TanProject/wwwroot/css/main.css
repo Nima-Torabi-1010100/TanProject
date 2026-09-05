@@ -866,9 +866,9 @@ main {
 
 
 .dynamic-title__text {
-    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    font-size: clamp(2.2rem, 3vw, 4.2rem);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    margin-top: 22rem;
+    margin-top: 24rem;
 }
 
     .dynamic-title__text.fade-in {
