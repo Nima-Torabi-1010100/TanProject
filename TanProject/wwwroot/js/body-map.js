@@ -72,10 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setStep(2);
         });
     });
-    function getPartLabel(partId) {
-        const lang = getCurrentLang();
-        return translations[lang].bodyMapping.bodyParts[partId] || partId;
-    }
     function updateNavButtons(stepNumber) {
         if (!nextBtn || !prevBtn) return;
         nextBtn.classList.toggle('is-visible', stepNumber === 1);
@@ -315,6 +311,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resetCurrentSelection();
     renderDots();
-    updateNavButtons(1);
+    //updateNavButtons(1);
     updateActionButtons();
+
+    const introMessages = getTranslations('bodyMapping').introMessages || [];
+    const bodyMappingEl = document.querySelector('.body-mapping');
+    function playIntroSequence(messages, index, onDone) {
+        if (index >= messages.length) {
+            onDone();
+            return;
+        }
+        animateText(instruction, messages[index]);
+        setTimeout(() => playIntroSequence(messages, index + 1, onDone), 2400);
+    }
+
+    if (introMessages.length > 0 && bodyMappingEl) {
+        playIntroSequence(introMessages, 0, () => {
+            bodyMappingEl.classList.add('is-ready');
+            setStep(1);
+        });
+    } else {
+        bodyMappingEl.classList.add('is-ready');
+        updateNavButtons(1);
+        setStep(1);
+    }
 });

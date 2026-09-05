@@ -91,6 +91,12 @@ const translations = {
             "stepText": "گام دوم: شناسایی حس‌های بدن",
             "instruction1": "ناحیه‌ای از بدنت که بیشتر حسش میکنی را لمس کن",
             "instruction2": "توصیف کن این حس چه جوریه",
+            "introMessages": [
+                "برای شروع، فقط یک نقطه از بدنت رو لمس کن.",
+                "جایی رو انتخاب کن که این روزها بیشتر متوجهش می‌شی.",
+                "بعد، نوع حسی که داری رو انتخاب کن؛ مثل سرما، گرما، سنگینی و...",
+                "در آخر، شدت و میزان خوشایند بودنش رو با اسلایدرها مشخص کن."
+            ],
             "questionPrefix": "در ناحیه",
             "questionSuffix": "چه حسی داری؟",
             "placeholder": "یک بخش از بدن را انتخاب کن",
@@ -301,6 +307,12 @@ const translations = {
             "stepText": "Step 2: Identifying Body Sensations",
             "instruction1": "Touch the area of your body where you feel the most sensation",
             "instruction2": "Define how this feeling feels",
+            "introMessages": [
+                "To begin, simply touch a point on your body.",
+                "Choose an area you’ve been noticing more lately.",
+                "Then, choose the type of sensation you feel, such as cold, warmth, or heaviness.",
+                "Finally, use the sliders to rate its intensity and how pleasant it feels."
+            ],
             "questionPrefix": "What do you feel in your",
             "questionSuffix": "?",
             "placeholder": "Select a part of your body",

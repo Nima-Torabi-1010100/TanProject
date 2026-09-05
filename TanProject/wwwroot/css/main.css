@@ -1184,6 +1184,23 @@ main {
 }
 
 /* Body Mapping Page, Sensation Panel */
+.body-mapping .sensation-panel,
+.body-mapping .body-mapping__actions,
+.body-mapping .body-map__image {
+    opacity: 0.5;
+    transform: translateY(1.2rem);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.body-mapping.is-ready .sensation-panel,
+.body-mapping.is-ready .body-mapping__actions,
+.body-mapping.is-ready .body-map__image {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 .sensation-panel {
     width: 100%;
     max-width: 50rem;
@@ -2965,7 +2982,7 @@ main {
         display: block;
         width: 4rem;
         height: 0.5rem;
-        background-color: rgba(51, 30, 56, .15);
+        background-color: var(--color-sensation-dot);
         border-radius: var(--radius-pill);
         margin: 0 auto 1.5rem;
         cursor: grab;
